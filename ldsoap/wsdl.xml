@@ -1,0 +1,3523 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="Mobile" targetNamespace="http://Mobile.ws.domoboxbusiness.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://Mobile.ws.domoboxbusiness.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://Mobile.ws.domoboxbusiness.com/" xmlns:tns="http://Mobile.ws.domoboxbusiness.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="ApplyMobilePicture" type="tns:ApplyMobilePicture"/>
+      <xs:element name="ApplyMobilePictureResponse" type="tns:ApplyMobilePictureResponse"/>
+      <xs:element name="CancelMobilePicture" type="tns:CancelMobilePicture"/>
+      <xs:element name="CancelMobilePictureResponse" type="tns:CancelMobilePictureResponse"/>
+      <xs:element name="ClearAndroidNotificationDataBase" type="tns:ClearAndroidNotificationDataBase"/>
+      <xs:element name="ClearAndroidNotificationDataBaseResponse" type="tns:ClearAndroidNotificationDataBaseResponse"/>
+      <xs:element name="ExecuteAction" type="tns:ExecuteAction"/>
+      <xs:element name="ExecuteActionResponse" type="tns:ExecuteActionResponse"/>
+      <xs:element name="GetActionTranslations" type="tns:GetActionTranslations"/>
+      <xs:element name="GetActionTranslationsResponse" type="tns:GetActionTranslationsResponse"/>
+      <xs:element name="GetAlarmFaultObjectList" type="tns:GetAlarmFaultObjectList"/>
+      <xs:element name="GetAlarmFaultObjectListResponse" type="tns:GetAlarmFaultObjectListResponse"/>
+      <xs:element name="GetAlarmFaultsStatistics" type="tns:GetAlarmFaultsStatistics"/>
+      <xs:element name="GetAlarmFaultsStatisticsResponse" type="tns:GetAlarmFaultsStatisticsResponse"/>
+      <xs:element name="GetAlarmHistoryObjectList" type="tns:GetAlarmHistoryObjectList"/>
+      <xs:element name="GetAlarmHistoryObjectListResponse" type="tns:GetAlarmHistoryObjectListResponse"/>
+      <xs:element name="GetAlarmeAccessLevel" type="tns:GetAlarmeAccessLevel"/>
+      <xs:element name="GetAlarmeAccessLevelResponse" type="tns:GetAlarmeAccessLevelResponse"/>
+      <xs:element name="GetAlertLogs" type="tns:GetAlertLogs"/>
+      <xs:element name="GetAlertLogsResponse" type="tns:GetAlertLogsResponse"/>
+      <xs:element name="GetBookmarks" type="tns:GetBookmarks"/>
+      <xs:element name="GetBookmarksResponse" type="tns:GetBookmarksResponse"/>
+      <xs:element name="GetCameras" type="tns:GetCameras"/>
+      <xs:element name="GetCamerasResponse" type="tns:GetCamerasResponse"/>
+      <xs:element name="GetCategories" type="tns:GetCategories"/>
+      <xs:element name="GetCategoriesResponse" type="tns:GetCategoriesResponse"/>
+      <xs:element name="GetCategoriesTranslations" type="tns:GetCategoriesTranslations"/>
+      <xs:element name="GetCategoriesTranslationsResponse" type="tns:GetCategoriesTranslationsResponse"/>
+      <xs:element name="GetConsumptions" type="tns:GetConsumptions"/>
+      <xs:element name="GetConsumptionsResponse" type="tns:GetConsumptionsResponse"/>
+      <xs:element name="GetDeviceInstantane" type="tns:GetDeviceInstantane"/>
+      <xs:element name="GetDeviceInstantaneResponse" type="tns:GetDeviceInstantaneResponse"/>
+      <xs:element name="GetDeviceState" type="tns:GetDeviceState"/>
+      <xs:element name="GetDeviceStateResponse" type="tns:GetDeviceStateResponse"/>
+      <xs:element name="GetDeviceTranslations" type="tns:GetDeviceTranslations"/>
+      <xs:element name="GetDeviceTranslationsResponse" type="tns:GetDeviceTranslationsResponse"/>
+      <xs:element name="GetDevices" type="tns:GetDevices"/>
+      <xs:element name="GetDevicesFromCatg" type="tns:GetDevicesFromCatg"/>
+      <xs:element name="GetDevicesFromCatgResponse" type="tns:GetDevicesFromCatgResponse"/>
+      <xs:element name="GetDevicesResponse" type="tns:GetDevicesResponse"/>
+      <xs:element name="GetGroup" type="tns:GetGroup"/>
+      <xs:element name="GetGroupResponse" type="tns:GetGroupResponse"/>
+      <xs:element name="GetGroups" type="tns:GetGroups"/>
+      <xs:element name="GetGroupsResponse" type="tns:GetGroupsResponse"/>
+      <xs:element name="GetHistValue" type="tns:GetHistValue"/>
+      <xs:element name="GetHistValueResponse" type="tns:GetHistValueResponse"/>
+      <xs:element name="GetInstantTypeList" type="tns:GetInstantTypeList"/>
+      <xs:element name="GetInstantTypeListResponse" type="tns:GetInstantTypeListResponse"/>
+      <xs:element name="GetPicture" type="tns:GetPicture"/>
+      <xs:element name="GetPictureResponse" type="tns:GetPictureResponse"/>
+      <xs:element name="GetPieChartValue" type="tns:GetPieChartValue"/>
+      <xs:element name="GetPieChartValueResponse" type="tns:GetPieChartValueResponse"/>
+      <xs:element name="GetRTDataCategoriesList" type="tns:GetRTDataCategoriesList"/>
+      <xs:element name="GetRTDataCategoriesListResponse" type="tns:GetRTDataCategoriesListResponse"/>
+      <xs:element name="GetRTDataTypeList" type="tns:GetRTDataTypeList"/>
+      <xs:element name="GetRTDataTypeListResponse" type="tns:GetRTDataTypeListResponse"/>
+      <xs:element name="GetRTPageDescriptor" type="tns:GetRTPageDescriptor"/>
+      <xs:element name="GetRTPageDescriptorResponse" type="tns:GetRTPageDescriptorResponse"/>
+      <xs:element name="GetRooms" type="tns:GetRooms"/>
+      <xs:element name="GetRoomsNew" type="tns:GetRoomsNew"/>
+      <xs:element name="GetRoomsNewResponse" type="tns:GetRoomsNewResponse"/>
+      <xs:element name="GetRoomsResponse" type="tns:GetRoomsResponse"/>
+      <xs:element name="GetScenarios" type="tns:GetScenarios"/>
+      <xs:element name="GetScenariosResponse" type="tns:GetScenariosResponse"/>
+      <xs:element name="GetSites" type="tns:GetSites"/>
+      <xs:element name="GetSitesResponse" type="tns:GetSitesResponse"/>
+      <xs:element name="GetStateTranslations" type="tns:GetStateTranslations"/>
+      <xs:element name="GetStateTranslationsResponse" type="tns:GetStateTranslationsResponse"/>
+      <xs:element name="GetTotalDataValue" type="tns:GetTotalDataValue"/>
+      <xs:element name="GetTotalDataValueResponse" type="tns:GetTotalDataValueResponse"/>
+      <xs:element name="GetTranslations" type="tns:GetTranslations"/>
+      <xs:element name="GetTranslationsREST" type="tns:GetTranslationsREST"/>
+      <xs:element name="GetTranslationsRESTResponse" type="tns:GetTranslationsRESTResponse"/>
+      <xs:element name="GetTranslationsResponse" type="tns:GetTranslationsResponse"/>
+      <xs:element name="GetUsers" type="tns:GetUsers"/>
+      <xs:element name="GetUsersResponse" type="tns:GetUsersResponse"/>
+      <xs:element name="GetVarunaAlarms" type="tns:GetVarunaAlarms"/>
+      <xs:element name="GetVarunaAlarmsResponse" type="tns:GetVarunaAlarmsResponse"/>
+      <xs:element name="GetVarunaEvents" type="tns:GetVarunaEvents"/>
+      <xs:element name="GetVarunaEventsResponse" type="tns:GetVarunaEventsResponse"/>
+      <xs:element name="GetVoiceObjects" type="tns:GetVoiceObjects"/>
+      <xs:element name="GetVoiceObjectsResponse" type="tns:GetVoiceObjectsResponse"/>
+      <xs:element name="KeepAlive" type="tns:KeepAlive"/>
+      <xs:element name="KeepAliveResponse" type="tns:KeepAliveResponse"/>
+      <xs:element name="Login" type="tns:Login"/>
+      <xs:element name="LoginAlertLogs" type="tns:LoginAlertLogs"/>
+      <xs:element name="LoginAlertLogsResponse" type="tns:LoginAlertLogsResponse"/>
+      <xs:element name="LoginBookmarks" type="tns:LoginBookmarks"/>
+      <xs:element name="LoginBookmarksResponse" type="tns:LoginBookmarksResponse"/>
+      <xs:element name="LoginCameras" type="tns:LoginCameras"/>
+      <xs:element name="LoginCamerasResponse" type="tns:LoginCamerasResponse"/>
+      <xs:element name="LoginConsumptions" type="tns:LoginConsumptions"/>
+      <xs:element name="LoginConsumptionsResponse" type="tns:LoginConsumptionsResponse"/>
+      <xs:element name="LoginDeviceState" type="tns:LoginDeviceState"/>
+      <xs:element name="LoginDeviceStateResponse" type="tns:LoginDeviceStateResponse"/>
+      <xs:element name="LoginDevices" type="tns:LoginDevices"/>
+      <xs:element name="LoginDevicesFromCatg" type="tns:LoginDevicesFromCatg"/>
+      <xs:element name="LoginDevicesFromCatgResponse" type="tns:LoginDevicesFromCatgResponse"/>
+      <xs:element name="LoginDevicesResponse" type="tns:LoginDevicesResponse"/>
+      <xs:element name="LoginExecuteAction" type="tns:LoginExecuteAction"/>
+      <xs:element name="LoginExecuteActionResponse" type="tns:LoginExecuteActionResponse"/>
+      <xs:element name="LoginGroup" type="tns:LoginGroup"/>
+      <xs:element name="LoginGroupResponse" type="tns:LoginGroupResponse"/>
+      <xs:element name="LoginGroups" type="tns:LoginGroups"/>
+      <xs:element name="LoginGroupsResponse" type="tns:LoginGroupsResponse"/>
+      <xs:element name="LoginInfos" type="tns:LoginInfos"/>
+      <xs:element name="LoginInfosResponse" type="tns:LoginInfosResponse"/>
+      <xs:element name="LoginResponse" type="tns:LoginResponse"/>
+      <xs:element name="LoginScenarios" type="tns:LoginScenarios"/>
+      <xs:element name="LoginScenariosResponse" type="tns:LoginScenariosResponse"/>
+      <xs:element name="NewLoginInfos" type="tns:NewLoginInfos"/>
+      <xs:element name="NewLoginInfosResponse" type="tns:NewLoginInfosResponse"/>
+      <xs:element name="RefreshVarunaEvents" type="tns:RefreshVarunaEvents"/>
+      <xs:element name="RefreshVarunaEventsResponse" type="tns:RefreshVarunaEventsResponse"/>
+      <xs:element name="RegisterNotif" type="tns:RegisterNotif"/>
+      <xs:element name="RegisterNotifIpad" type="tns:RegisterNotifIpad"/>
+      <xs:element name="RegisterNotifIpad2" type="tns:RegisterNotifIpad2"/>
+      <xs:element name="RegisterNotifIpad2Response" type="tns:RegisterNotifIpad2Response"/>
+      <xs:element name="RegisterNotifIpadResponse" type="tns:RegisterNotifIpadResponse"/>
+      <xs:element name="RegisterNotifPhoneAndroid" type="tns:RegisterNotifPhoneAndroid"/>
+      <xs:element name="RegisterNotifPhoneAndroidResponse" type="tns:RegisterNotifPhoneAndroidResponse"/>
+      <xs:element name="RegisterNotifResponse" type="tns:RegisterNotifResponse"/>
+      <xs:element name="RegisterNotifTabletteAndroid" type="tns:RegisterNotifTabletteAndroid"/>
+      <xs:element name="RegisterNotifTabletteAndroidResponse" type="tns:RegisterNotifTabletteAndroidResponse"/>
+      <xs:element name="ResetInstantValue" type="tns:ResetInstantValue"/>
+      <xs:element name="ResetInstantValueResponse" type="tns:ResetInstantValueResponse"/>
+      <xs:element name="ResetNotif" type="tns:ResetNotif"/>
+      <xs:element name="ResetNotifResponse" type="tns:ResetNotifResponse"/>
+      <xs:element name="ResetTotalValue" type="tns:ResetTotalValue"/>
+      <xs:element name="ResetTotalValueResponse" type="tns:ResetTotalValueResponse"/>
+      <xs:element name="SonosAddAndPlay" type="tns:SonosAddAndPlay"/>
+      <xs:element name="SonosAddAndPlayResponse" type="tns:SonosAddAndPlayResponse"/>
+      <xs:element name="SonosAddFavorite" type="tns:SonosAddFavorite"/>
+      <xs:element name="SonosAddFavoriteResponse" type="tns:SonosAddFavoriteResponse"/>
+      <xs:element name="SonosAddTrackInPlaylist" type="tns:SonosAddTrackInPlaylist"/>
+      <xs:element name="SonosAddTrackInPlaylistResponse" type="tns:SonosAddTrackInPlaylistResponse"/>
+      <xs:element name="SonosDeleteFavorite" type="tns:SonosDeleteFavorite"/>
+      <xs:element name="SonosDeleteFavoriteResponse" type="tns:SonosDeleteFavoriteResponse"/>
+      <xs:element name="SonosDeleteList" type="tns:SonosDeleteList"/>
+      <xs:element name="SonosDeleteListResponse" type="tns:SonosDeleteListResponse"/>
+      <xs:element name="SonosExplore" type="tns:SonosExplore"/>
+      <xs:element name="SonosExploreResponse" type="tns:SonosExploreResponse"/>
+      <xs:element name="SonosGetAllGroups" type="tns:SonosGetAllGroups"/>
+      <xs:element name="SonosGetAllGroupsResponse" type="tns:SonosGetAllGroupsResponse"/>
+      <xs:element name="SonosGetLineInList" type="tns:SonosGetLineInList"/>
+      <xs:element name="SonosGetLineInListResponse" type="tns:SonosGetLineInListResponse"/>
+      <xs:element name="SonosGetPlaylist" type="tns:SonosGetPlaylist"/>
+      <xs:element name="SonosGetPlaylistResponse" type="tns:SonosGetPlaylistResponse"/>
+      <xs:element name="SonosListenEntryStream" type="tns:SonosListenEntryStream"/>
+      <xs:element name="SonosListenEntryStreamResponse" type="tns:SonosListenEntryStreamResponse"/>
+      <xs:element name="SonosMakeNewGroup" type="tns:SonosMakeNewGroup"/>
+      <xs:element name="SonosMakeNewGroupResponse" type="tns:SonosMakeNewGroupResponse"/>
+      <xs:element name="SonosRemoveTrackFromPlaylist" type="tns:SonosRemoveTrackFromPlaylist"/>
+      <xs:element name="SonosRemoveTrackFromPlaylistResponse" type="tns:SonosRemoveTrackFromPlaylistResponse"/>
+      <xs:element name="SonosReorderTrack" type="tns:SonosReorderTrack"/>
+      <xs:element name="SonosReorderTrackResponse" type="tns:SonosReorderTrackResponse"/>
+      <xs:element name="SonosSetCurrentTrackNumber" type="tns:SonosSetCurrentTrackNumber"/>
+      <xs:element name="SonosSetCurrentTrackNumberResponse" type="tns:SonosSetCurrentTrackNumberResponse"/>
+      <xs:element name="SonosSetRandom" type="tns:SonosSetRandom"/>
+      <xs:element name="SonosSetRandomResponse" type="tns:SonosSetRandomResponse"/>
+      <xs:element name="SonosSetRepeat" type="tns:SonosSetRepeat"/>
+      <xs:element name="SonosSetRepeatResponse" type="tns:SonosSetRepeatResponse"/>
+      <xs:complexType name="RegisterNotifPhoneAndroid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="registration_id" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RegisterNotifPhoneAndroidResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RegisterNotifIpad2">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="phone_id" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RegisterNotifIpad2Response">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="SonosGetAllGroups">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosGetAllGroupsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:sonosMobileGroupDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sonosMobileGroupDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="album" type="xs:string"/>
+          <xs:element minOccurs="0" name="artist" type="xs:string"/>
+          <xs:element minOccurs="0" name="coordinator_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="cover_link" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element name="is_playing" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="sonos_label" type="xs:string"/>
+          <xs:element minOccurs="0" name="title" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetVarunaAlarms">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetVarunaAlarmsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:varunaInfos"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="varunaInfos">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date" type="tns:zonedDate"/>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="zonedDate">
+        <xs:sequence>
+          <xs:element name="dayInMonth" type="xs:int"/>
+          <xs:element name="GMTOffsetInMinute" type="xs:int"/>
+          <xs:element name="hour" type="xs:int"/>
+          <xs:element name="milliSecond" type="xs:int"/>
+          <xs:element name="minute" type="xs:int"/>
+          <xs:element minOccurs="0" name="month" type="tns:month"/>
+          <xs:element name="second" type="xs:int"/>
+          <xs:element name="year" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosMakeNewGroup">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="devices_keys" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosMakeNewGroupResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetDeviceInstantane">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="instant_type" type="tns:instantType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetDeviceInstantaneResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:instantValue"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="instantValue">
+        <xs:sequence>
+          <xs:element name="maxScale" type="xs:double"/>
+          <xs:element name="maxValue" type="xs:double"/>
+          <xs:element name="minScale" type="xs:double"/>
+          <xs:element name="minValue" type="xs:double"/>
+          <xs:element name="value" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginBookmarks">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="user_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_list" type="xs:string"/>
+          <xs:element minOccurs="0" name="group_list" type="xs:string"/>
+          <xs:element minOccurs="0" name="scenario_list" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginBookmarksResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:bookmarks"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="bookmarks">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="devices" type="tns:devices"/>
+          <xs:element minOccurs="0" name="groups" type="tns:groups"/>
+          <xs:element minOccurs="0" name="scenarios" type="tns:scenarios"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="devices">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="device" nillable="true" type="tns:device"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="device">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_clsid" type="xs:string"/>
+          <xs:element minOccurs="0" name="room_label" type="xs:string"/>
+          <xs:element minOccurs="0" name="category_clsid" type="xs:string"/>
+          <xs:element minOccurs="0" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="resume" type="xs:string"/>
+          <xs:element name="alarm" type="xs:boolean"/>
+          <xs:element name="feedback_enbl" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="states" type="tns:states"/>
+          <xs:element minOccurs="0" name="actions" type="tns:actions"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="states">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="state" nillable="true" type="tns:state"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="state">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="state_clsid" type="xs:string"/>
+          <xs:element minOccurs="0" name="type" type="xs:string"/>
+          <xs:element minOccurs="0" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="values" type="tns:values"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="values">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="value" nillable="true" type="tns:value"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="value">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="index" type="xs:string"/>
+          <xs:element minOccurs="0" name="value" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="unit" type="xs:string"/>
+          <xs:element minOccurs="0" name="label" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="actions">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="action" nillable="true" type="tns:action"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="action">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="prop_clsid" type="xs:string"/>
+          <xs:element minOccurs="0" name="action_clsid" type="xs:string"/>
+          <xs:element minOccurs="0" name="descriptor" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="groups">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="group" nillable="true" type="tns:group"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="group">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="group_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="resume" type="xs:string"/>
+          <xs:element minOccurs="0" name="family" type="xs:string"/>
+          <xs:element minOccurs="0" name="actions" type="tns:actions"/>
+          <xs:element minOccurs="0" name="states" type="tns:states"/>
+          <xs:element minOccurs="0" name="devices_groups" type="tns:devicesGroups"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="devicesGroups">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="devices_group" nillable="true" type="tns:devicesGroup"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="devicesGroup">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="device_label" type="xs:string"/>
+          <xs:element minOccurs="0" name="room_label" type="xs:string"/>
+          <xs:element minOccurs="0" name="devc_clsid" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="states" type="tns:states"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="scenarios">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="scenario" nillable="true" type="tns:scenario"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="scenario">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="scenario_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="resume" type="xs:string"/>
+          <xs:element minOccurs="0" name="next_exe_date" type="xs:string"/>
+          <xs:element minOccurs="0" name="activate_state" type="xs:string"/>
+          <xs:element minOccurs="0" name="authorization_act" type="xs:string"/>
+          <xs:element minOccurs="0" name="authorization_des" type="xs:string"/>
+          <xs:element minOccurs="0" name="last_exec" type="xs:string"/>
+          <xs:element minOccurs="0" name="tasks" type="tns:tasks"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tasks">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="task" nillable="true" type="tns:task"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="task">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="target" type="xs:string"/>
+          <xs:element minOccurs="0" name="action" type="xs:string"/>
+          <xs:element minOccurs="0" name="clsid" type="xs:string"/>
+          <xs:element minOccurs="0" name="room_label" type="xs:string"/>
+          <xs:element name="offset" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginConsumptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="user_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginConsumptionsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:consumptions"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="consumptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="total_cons" type="tns:totalCons"/>
+          <xs:element minOccurs="0" name="rooms_cons" type="tns:roomsCons"/>
+          <xs:element minOccurs="0" name="devices_cons" type="tns:devicesCons"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="totalCons">
+        <xs:sequence>
+          <xs:element name="value" type="xs:float"/>
+          <xs:element minOccurs="0" name="prix" type="xs:string"/>
+          <xs:element minOccurs="0" name="currency" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="roomsCons">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="room_cons" nillable="true" type="tns:roomCons"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="roomCons">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="room_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="room_label" type="xs:string"/>
+          <xs:element minOccurs="0" name="picture_key" type="xs:string"/>
+          <xs:element name="value" type="xs:float"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="devicesCons">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="device_cons" nillable="true" type="tns:deviceCons"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deviceCons">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_clsid" type="xs:string"/>
+          <xs:element minOccurs="0" name="room_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="room_label" type="xs:string"/>
+          <xs:element minOccurs="0" name="category_clsid" type="xs:string"/>
+          <xs:element minOccurs="0" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="picture_key" type="xs:string"/>
+          <xs:element name="value" type="xs:float"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginAlertLogs">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="user_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginAlertLogsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:alertLogs"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="alertLogs">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="alert_log" nillable="true" type="tns:alertLog"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="alertLog">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+          <xs:element minOccurs="0" name="date" type="xs:string"/>
+          <xs:element minOccurs="0" name="devc_clsid" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetInstantTypeList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetInstantTypeListResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:instantType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="KeepAlive">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="KeepAliveResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetVarunaEvents">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetVarunaEventsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:varunaInfos"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetGroup">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="group_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetGroupResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:group"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosSetRandom">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element name="value" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosSetRandomResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="SonosDeleteFavorite">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="path" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosDeleteFavoriteResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetDeviceTranslations">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetDeviceTranslationsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ResetInstantValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="type" type="tns:instantType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ResetInstantValueResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetDevices">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="room_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="category_clsid" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetDevicesResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:devices"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RegisterNotifTabletteAndroid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="registration_id" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RegisterNotifTabletteAndroidResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetCameras">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="all" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetCamerasResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:cameras"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cameras">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="cameras" nillable="true" type="tns:camera"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="camera">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="camera_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="camera_clsid" type="xs:string"/>
+          <xs:element minOccurs="0" name="format_clsid" type="xs:string"/>
+          <xs:element minOccurs="0" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="picture_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="url" type="xs:string"/>
+          <xs:element minOccurs="0" name="url_ext" type="xs:string"/>
+          <xs:element minOccurs="0" name="login" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="url_left" type="xs:string"/>
+          <xs:element minOccurs="0" name="url_right" type="xs:string"/>
+          <xs:element minOccurs="0" name="url_up" type="xs:string"/>
+          <xs:element minOccurs="0" name="url_down" type="xs:string"/>
+          <xs:element minOccurs="0" name="url_preset1" type="xs:string"/>
+          <xs:element minOccurs="0" name="url_preset2" type="xs:string"/>
+          <xs:element minOccurs="0" name="url_preset3" type="xs:string"/>
+          <xs:element minOccurs="0" name="url_preset4" type="xs:string"/>
+          <xs:element minOccurs="0" name="url_zoom_up" type="xs:string"/>
+          <xs:element minOccurs="0" name="url_zoom_down" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosAddAndPlay">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="rincon_uri" type="xs:string"/>
+          <xs:element minOccurs="0" name="metadata" type="xs:string"/>
+          <xs:element minOccurs="0" name="num" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosAddAndPlayResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetAlertLogs">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="start_index" type="xs:int"/>
+          <xs:element minOccurs="0" name="count" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetAlertLogsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:alertLogs"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetAlarmFaultsStatistics">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="access_code" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetAlarmFaultsStatisticsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:xxdAlarmFaultsStatisticsDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="xxdAlarmFaultsStatisticsDescriptor">
+        <xs:sequence>
+          <xs:element name="inhibitions" type="xs:int"/>
+          <xs:element name="openEntrance" type="xs:int"/>
+          <xs:element name="others" type="xs:int"/>
+          <xs:element name="selfProtection" type="xs:int"/>
+          <xs:element name="unacknowledgedEvents" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ExecuteAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="target_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="prop_clsid" type="xs:string"/>
+          <xs:element minOccurs="0" name="action_clsid" type="xs:string"/>
+          <xs:element name="prop_numr" type="xs:int"/>
+          <xs:element minOccurs="0" name="descriptor" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ExecuteActionResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Login">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="user_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosRemoveTrackFromPlaylist">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element name="value" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosRemoveTrackFromPlaylistResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="LoginDevicesFromCatg">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="user_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="category_clsid" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginDevicesFromCatgResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:devices"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ClearAndroidNotificationDataBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ClearAndroidNotificationDataBaseResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="SonosExplore">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="path" type="xs:string"/>
+          <xs:element minOccurs="0" name="starting_index" type="xs:int"/>
+          <xs:element minOccurs="0" name="count" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosExploreResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:sonosTrackDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sonosTrackDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="album" type="xs:string"/>
+          <xs:element minOccurs="0" name="artist" type="xs:string"/>
+          <xs:element name="container" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="cover" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="id" type="xs:string"/>
+          <xs:element minOccurs="0" name="metadata" type="xs:string"/>
+          <xs:element name="number" type="xs:int"/>
+          <xs:element minOccurs="0" name="rincon_uri" type="xs:string"/>
+          <xs:element minOccurs="0" name="title" type="xs:string"/>
+          <xs:element name="track_type" type="xs:int"/>
+          <xs:element minOccurs="0" name="type_str" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginDevices">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="user_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="room_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="category_clsid" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginDevicesResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:devices"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetHistValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="chart_type" type="tns:chartType"/>
+          <xs:element minOccurs="0" name="type" type="tns:rtDataType"/>
+          <xs:element minOccurs="0" name="category" type="tns:categoryValueType"/>
+          <xs:element minOccurs="0" name="date" type="tns:ldDate"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ldDate">
+        <xs:sequence>
+          <xs:element name="dayInMonth" type="xs:int"/>
+          <xs:element minOccurs="0" name="month" type="tns:month"/>
+          <xs:element name="year" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetHistValueResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:histogramValue"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="histogramValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date" type="tns:ldDate"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="values" nillable="true" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetTranslations">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetTranslationsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetStateTranslations">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetStateTranslationsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosSetCurrentTrackNumber">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosSetCurrentTrackNumberResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="SonosDeleteList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosDeleteListResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetScenarios">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetScenariosResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:scenarios"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginExecuteAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="user_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="target_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="prop_clsid" type="xs:string"/>
+          <xs:element minOccurs="0" name="action_clsid" type="xs:string"/>
+          <xs:element name="prop_numr" type="xs:int"/>
+          <xs:element minOccurs="0" name="descriptor" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginExecuteActionResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetDeviceState">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetDeviceStateResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:device"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetAlarmeAccessLevel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="access_code" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetAlarmeAccessLevelResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:xxdAccessLevel"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetAlarmHistoryObjectList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="access_code" type="xs:string"/>
+          <xs:element minOccurs="0" name="category" type="tns:xxdAlarmHistoryCategory"/>
+          <xs:element name="count" type="xs:int"/>
+          <xs:element name="rowIndex" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetAlarmHistoryObjectListResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:xxdAlarmHistory"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="xxdAlarmHistory">
+        <xs:sequence>
+          <xs:element name="index" type="xs:int"/>
+          <xs:element minOccurs="0" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="originatorId" type="xs:string"/>
+          <xs:element minOccurs="0" name="originatorType" type="xs:string"/>
+          <xs:element name="timestamp" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="zones" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ResetNotif">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="phone_id" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ResetNotifResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="LoginGroup">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="user_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="group_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginGroupResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:groups"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetRTPageDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetRTPageDescriptorResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:rtPageDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="rtPageDescriptor">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="chart_types" nillable="true" type="tns:chartType"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="instant_types" nillable="true" type="tns:instantType"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="types" nillable="true" type="tns:rtDataType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosGetPlaylist">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosGetPlaylistResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:sonosTrackDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetActionTranslations">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetActionTranslationsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RefreshVarunaEvents">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RefreshVarunaEventsResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="RegisterNotif">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="phone_id" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RegisterNotifResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetRooms">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetRoomsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:rooms"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="rooms">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="room" nillable="true" type="tns:room"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="room">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="room_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="picture_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RegisterNotifIpad">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="phone_id" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RegisterNotifIpadResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="SonosListenEntryStream">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key_src" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosListenEntryStreamResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetVoiceObjects">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetVoiceObjectsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:voicestruct"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="voicestruct">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="rooms" nillable="true" type="tns:voiceroom"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="scenarios" nillable="true" type="tns:voicescenario"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="voiceroom">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="devices" nillable="true" type="tns:voicedevice"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="voicedevice">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="actions" nillable="true" type="tns:voicedeviceaction"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="voicedeviceaction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="prop_clsid" type="xs:string"/>
+          <xs:element minOccurs="0" name="action_clsid" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="voicescenario">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="scenario_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosSetRepeat">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element name="value" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosSetRepeatResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="LoginDeviceState">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="user_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginDeviceStateResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:devices"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginInfos">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="user_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_list" type="xs:string"/>
+          <xs:element minOccurs="0" name="group_list" type="xs:string"/>
+          <xs:element minOccurs="0" name="scenario_list" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginInfosResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:infos"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="infos">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="rooms" type="tns:rooms"/>
+          <xs:element minOccurs="0" name="bookmarks" type="tns:bookmarks"/>
+          <xs:element minOccurs="0" name="scenarios" type="tns:scenarios"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetPieChartValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="chart_type" type="tns:chartType"/>
+          <xs:element minOccurs="0" name="type" type="tns:rtDataType"/>
+          <xs:element minOccurs="0" name="date" type="tns:ldDate"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetPieChartValueResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:pieChartValue"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="pieChartValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cold" type="xs:double"/>
+          <xs:element minOccurs="0" name="cooling" type="xs:double"/>
+          <xs:element minOccurs="0" name="date" type="tns:ldDate"/>
+          <xs:element minOccurs="0" name="domestic_hot_water" type="xs:double"/>
+          <xs:element minOccurs="0" name="heating" type="xs:double"/>
+          <xs:element minOccurs="0" name="hot" type="xs:double"/>
+          <xs:element minOccurs="0" name="plug" type="xs:double"/>
+          <xs:element minOccurs="0" name="undetermined" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetCategories">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="room_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetCategoriesResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:categories"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="categories">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="category" nillable="true" type="tns:category"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="category">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="category_clsid" type="xs:string"/>
+          <xs:element minOccurs="0" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="picture_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="devices_count" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CancelMobilePicture">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="room_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CancelMobilePictureResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="LoginCameras">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="user_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="all" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginCamerasResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:cameras"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosAddFavorite">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="path" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosAddFavoriteResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetGroups">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetGroupsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:groups"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginScenarios">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="user_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginScenariosResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:scenarios"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosReorderTrack">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element name="src" type="xs:int"/>
+          <xs:element name="dest" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosReorderTrackResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetRTDataTypeList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetRTDataTypeListResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:rtDataType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ApplyMobilePicture">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="picture_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="room_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="type" type="tns:mobileUploadType"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ApplyMobilePictureResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="SonosGetLineInList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosGetLineInListResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:sonosGroupDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sonosGroupDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="coordinator_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="sonos_label" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginGroups">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="user_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginGroupsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:groups"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetTotalDataValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="type" type="tns:rtDataType"/>
+          <xs:element minOccurs="0" name="category" type="tns:categoryValueType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetTotalDataValueResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:totalValue"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="totalValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date" type="tns:ldDate"/>
+          <xs:element minOccurs="0" name="date_reset" type="tns:ldDate"/>
+          <xs:element minOccurs="0" name="value" type="xs:double"/>
+          <xs:element minOccurs="0" name="value_reset" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetPicture">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="picture_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetPictureResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:base64Binary"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetConsumptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetConsumptionsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:consumptions"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="NewLoginInfos">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="user_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_list" type="xs:string"/>
+          <xs:element minOccurs="0" name="group_list" type="xs:string"/>
+          <xs:element minOccurs="0" name="scenario_list" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="NewLoginInfosResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:infos"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetUsers">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetUsersResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:users"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="users">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="user" nillable="true" type="tns:user"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="user">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="user_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="nickname" type="xs:string"/>
+          <xs:element minOccurs="0" name="picture_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetTranslationsREST">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetTranslationsRESTResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:mobileTranslationDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="mobileTranslationDescriptor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="base" type="xs:string"/>
+          <xs:element minOccurs="0" name="clsid" type="xs:string"/>
+          <xs:element minOccurs="0" name="clsid_lbl" type="xs:string"/>
+          <xs:element minOccurs="0" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="lang" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetBookmarks">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_list" type="xs:string"/>
+          <xs:element minOccurs="0" name="group_list" type="xs:string"/>
+          <xs:element minOccurs="0" name="scenario_list" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetBookmarksResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:bookmarks"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetRoomsNew">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetRoomsNewResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:rooms"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetCategoriesTranslations">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetCategoriesTranslationsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetDevicesFromCatg">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="category_clsid" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetDevicesFromCatgResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:devices"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetRTDataCategoriesList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="type" type="tns:rtDataType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetRTDataCategoriesListResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:categoryValueType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ResetTotalValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="type" type="tns:rtDataType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ResetTotalValueResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetSites">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetSitesResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:sites"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sites">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="site" nillable="true" type="tns:site"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="site">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="picture_key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosAddTrackInPlaylist">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="rincon_uri" type="xs:string"/>
+          <xs:element minOccurs="0" name="metadata" type="xs:string"/>
+          <xs:element minOccurs="0" name="num" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SonosAddTrackInPlaylistResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="GetAlarmFaultObjectList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="session_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="site_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="device_key" type="xs:string"/>
+          <xs:element minOccurs="0" name="access_code" type="xs:string"/>
+          <xs:element minOccurs="0" name="category" type="tns:xxdAlarmFaultCategory"/>
+          <xs:element name="count" type="xs:int"/>
+          <xs:element name="rowIndex" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetAlarmFaultObjectListResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:xxdAlarmFaultDescriptor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="xxdAlarmFaultDescriptor">
+        <xs:sequence>
+          <xs:element name="index" type="xs:int"/>
+          <xs:element minOccurs="0" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="productId" type="xs:string"/>
+          <xs:element minOccurs="0" name="productType" type="xs:string"/>
+          <xs:element minOccurs="0" name="zone" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="wsErrorCode">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="SERVER_ERROR"/>
+          <xs:enumeration value="USAGE_ERROR"/>
+          <xs:enumeration value="USER_ERROR"/>
+          <xs:enumeration value="AUTHORIZATION_BY_PASS"/>
+          <xs:enumeration value="UNAUTHORIZED"/>
+          <xs:enumeration value="ADMIN_ONLY"/>
+          <xs:enumeration value="NOT_STARTED"/>
+          <xs:enumeration value="DEVICE_DOESNT_EXIST"/>
+          <xs:enumeration value="INVALID_SESSION"/>
+          <xs:enumeration value="INVALID_PASSWORD"/>
+          <xs:enumeration value="TOO_MANY_TRIES"/>
+          <xs:enumeration value="DISABLED_MODULE"/>
+          <xs:enumeration value="SERVER_NOT_ENABLED"/>
+          <xs:enumeration value="INVALID_STATE"/>
+          <xs:enumeration value="INCOMPATIBLE_APPLICATION"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="month">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="JANUARY"/>
+          <xs:enumeration value="FEBRUARY"/>
+          <xs:enumeration value="MARCH"/>
+          <xs:enumeration value="APRIL"/>
+          <xs:enumeration value="MAY"/>
+          <xs:enumeration value="JUNE"/>
+          <xs:enumeration value="JULY"/>
+          <xs:enumeration value="AUGUST"/>
+          <xs:enumeration value="SEPTEMBER"/>
+          <xs:enumeration value="OCTOBER"/>
+          <xs:enumeration value="NOVEMBER"/>
+          <xs:enumeration value="DECEMBER"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="instantType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="CURRENT_ELEC"/>
+          <xs:enumeration value="POWER_ELEC"/>
+          <xs:enumeration value="POWER_GAZ"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="chartType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="hour"/>
+          <xs:enumeration value="day"/>
+          <xs:enumeration value="week"/>
+          <xs:enumeration value="month"/>
+          <xs:enumeration value="year"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="rtDataType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="elec"/>
+          <xs:enumeration value="gas"/>
+          <xs:enumeration value="water"/>
+          <xs:enumeration value="undef"/>
+          <xs:enumeration value="temp"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="categoryValueType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="total"/>
+          <xs:enumeration value="heating"/>
+          <xs:enumeration value="cooling"/>
+          <xs:enumeration value="domestic_hot_water"/>
+          <xs:enumeration value="plug"/>
+          <xs:enumeration value="undetermined"/>
+          <xs:enumeration value="hot"/>
+          <xs:enumeration value="cold"/>
+          <xs:enumeration value="indoor"/>
+          <xs:enumeration value="outdoor"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="xxdAccessLevel">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="MASTER"/>
+          <xs:enumeration value="USER"/>
+          <xs:enumeration value="LIMITED"/>
+          <xs:enumeration value="DENIED"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="xxdAlarmHistoryCategory">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ALL"/>
+          <xs:enumeration value="ON_OFF"/>
+          <xs:enumeration value="WITHOUT_ON_OFF"/>
+          <xs:enumeration value="UNACKNOWLEDGED"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="mobileUploadType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="MOBILE"/>
+          <xs:enumeration value="PROJECT"/>
+          <xs:enumeration value="ALL_PROJECTS"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="xxdAlarmFaultCategory">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OPEN_ENTRANCE"/>
+          <xs:enumeration value="SELF_PROTECTIONS"/>
+          <xs:enumeration value="OTHERS"/>
+          <xs:enumeration value="INHIBITIONS"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="WSException" type="tns:WSException"/>
+      <xs:complexType name="WSException">
+        <xs:sequence>
+          <xs:element name="errorCode" nillable="true" type="tns:wsErrorCode"/>
+          <xs:element name="errorTechnicalMessage" nillable="true" type="xs:string"/>
+          <xs:element name="errorMessage" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetBookmarksResponse">
+    <wsdl:part element="tns:GetBookmarksResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetRTDataCategoriesList">
+    <wsdl:part element="tns:GetRTDataCategoriesList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginGroup">
+    <wsdl:part element="tns:LoginGroup" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetRooms">
+    <wsdl:part element="tns:GetRooms" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetDevicesResponse">
+    <wsdl:part element="tns:GetDevicesResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosDeleteFavoriteResponse">
+    <wsdl:part element="tns:SonosDeleteFavoriteResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginDevicesFromCatgResponse">
+    <wsdl:part element="tns:LoginDevicesFromCatgResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetTranslationsResponse">
+    <wsdl:part element="tns:GetTranslationsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosRemoveTrackFromPlaylist">
+    <wsdl:part element="tns:SonosRemoveTrackFromPlaylist" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosMakeNewGroupResponse">
+    <wsdl:part element="tns:SonosMakeNewGroupResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetVoiceObjects">
+    <wsdl:part element="tns:GetVoiceObjects" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ClearAndroidNotificationDataBaseResponse">
+    <wsdl:part element="tns:ClearAndroidNotificationDataBaseResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosAddAndPlay">
+    <wsdl:part element="tns:SonosAddAndPlay" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetVarunaEvents">
+    <wsdl:part element="tns:GetVarunaEvents" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="RegisterNotif">
+    <wsdl:part element="tns:RegisterNotif" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetConsumptions">
+    <wsdl:part element="tns:GetConsumptions" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetAlarmFaultsStatisticsResponse">
+    <wsdl:part element="tns:GetAlarmFaultsStatisticsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginConsumptionsResponse">
+    <wsdl:part element="tns:LoginConsumptionsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosReorderTrack">
+    <wsdl:part element="tns:SonosReorderTrack" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginDevicesResponse">
+    <wsdl:part element="tns:LoginDevicesResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="RegisterNotifPhoneAndroidResponse">
+    <wsdl:part element="tns:RegisterNotifPhoneAndroidResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetDeviceState">
+    <wsdl:part element="tns:GetDeviceState" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetDeviceInstantaneResponse">
+    <wsdl:part element="tns:GetDeviceInstantaneResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginInfosResponse">
+    <wsdl:part element="tns:LoginInfosResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginBookmarksResponse">
+    <wsdl:part element="tns:LoginBookmarksResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetHistValueResponse">
+    <wsdl:part element="tns:GetHistValueResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="RegisterNotifIpad2Response">
+    <wsdl:part element="tns:RegisterNotifIpad2Response" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginExecuteAction">
+    <wsdl:part element="tns:LoginExecuteAction" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetTranslationsREST">
+    <wsdl:part element="tns:GetTranslationsREST" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetInstantTypeListResponse">
+    <wsdl:part element="tns:GetInstantTypeListResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetVarunaAlarmsResponse">
+    <wsdl:part element="tns:GetVarunaAlarmsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ResetTotalValue">
+    <wsdl:part element="tns:ResetTotalValue" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ExecuteActionResponse">
+    <wsdl:part element="tns:ExecuteActionResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ApplyMobilePictureResponse">
+    <wsdl:part element="tns:ApplyMobilePictureResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosSetCurrentTrackNumber">
+    <wsdl:part element="tns:SonosSetCurrentTrackNumber" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetPicture">
+    <wsdl:part element="tns:GetPicture" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetAlarmFaultObjectList">
+    <wsdl:part element="tns:GetAlarmFaultObjectList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="RegisterNotifIpadResponse">
+    <wsdl:part element="tns:RegisterNotifIpadResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginGroupResponse">
+    <wsdl:part element="tns:LoginGroupResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosMakeNewGroup">
+    <wsdl:part element="tns:SonosMakeNewGroup" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginCamerasResponse">
+    <wsdl:part element="tns:LoginCamerasResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetAlarmHistoryObjectListResponse">
+    <wsdl:part element="tns:GetAlarmHistoryObjectListResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetDeviceTranslations">
+    <wsdl:part element="tns:GetDeviceTranslations" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosDeleteList">
+    <wsdl:part element="tns:SonosDeleteList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginDeviceState">
+    <wsdl:part element="tns:LoginDeviceState" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetRTDataCategoriesListResponse">
+    <wsdl:part element="tns:GetRTDataCategoriesListResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetPictureResponse">
+    <wsdl:part element="tns:GetPictureResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ResetInstantValue">
+    <wsdl:part element="tns:ResetInstantValue" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosRemoveTrackFromPlaylistResponse">
+    <wsdl:part element="tns:SonosRemoveTrackFromPlaylistResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetGroups">
+    <wsdl:part element="tns:GetGroups" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ResetInstantValueResponse">
+    <wsdl:part element="tns:ResetInstantValueResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ResetNotifResponse">
+    <wsdl:part element="tns:ResetNotifResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosAddTrackInPlaylistResponse">
+    <wsdl:part element="tns:SonosAddTrackInPlaylistResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosAddTrackInPlaylist">
+    <wsdl:part element="tns:SonosAddTrackInPlaylist" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginExecuteActionResponse">
+    <wsdl:part element="tns:LoginExecuteActionResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetDevicesFromCatgResponse">
+    <wsdl:part element="tns:GetDevicesFromCatgResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ClearAndroidNotificationDataBase">
+    <wsdl:part element="tns:ClearAndroidNotificationDataBase" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetAlarmHistoryObjectList">
+    <wsdl:part element="tns:GetAlarmHistoryObjectList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosExploreResponse">
+    <wsdl:part element="tns:SonosExploreResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ApplyMobilePicture">
+    <wsdl:part element="tns:ApplyMobilePicture" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="RefreshVarunaEventsResponse">
+    <wsdl:part element="tns:RefreshVarunaEventsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetAlarmeAccessLevelResponse">
+    <wsdl:part element="tns:GetAlarmeAccessLevelResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="RegisterNotifPhoneAndroid">
+    <wsdl:part element="tns:RegisterNotifPhoneAndroid" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosSetCurrentTrackNumberResponse">
+    <wsdl:part element="tns:SonosSetCurrentTrackNumberResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="RegisterNotifIpad2">
+    <wsdl:part element="tns:RegisterNotifIpad2" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetHistValue">
+    <wsdl:part element="tns:GetHistValue" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetCategoriesResponse">
+    <wsdl:part element="tns:GetCategoriesResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosListenEntryStream">
+    <wsdl:part element="tns:SonosListenEntryStream" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetStateTranslationsResponse">
+    <wsdl:part element="tns:GetStateTranslationsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginCameras">
+    <wsdl:part element="tns:LoginCameras" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CancelMobilePicture">
+    <wsdl:part element="tns:CancelMobilePicture" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginDevicesFromCatg">
+    <wsdl:part element="tns:LoginDevicesFromCatg" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ResetTotalValueResponse">
+    <wsdl:part element="tns:ResetTotalValueResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetTotalDataValue">
+    <wsdl:part element="tns:GetTotalDataValue" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosGetAllGroupsResponse">
+    <wsdl:part element="tns:SonosGetAllGroupsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetAlarmFaultObjectListResponse">
+    <wsdl:part element="tns:GetAlarmFaultObjectListResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetPieChartValueResponse">
+    <wsdl:part element="tns:GetPieChartValueResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosGetLineInListResponse">
+    <wsdl:part element="tns:SonosGetLineInListResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="KeepAliveResponse">
+    <wsdl:part element="tns:KeepAliveResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="Login">
+    <wsdl:part element="tns:Login" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosSetRepeatResponse">
+    <wsdl:part element="tns:SonosSetRepeatResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetCategoriesTranslationsResponse">
+    <wsdl:part element="tns:GetCategoriesTranslationsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="RegisterNotifTabletteAndroid">
+    <wsdl:part element="tns:RegisterNotifTabletteAndroid" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetScenarios">
+    <wsdl:part element="tns:GetScenarios" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetCategoriesTranslations">
+    <wsdl:part element="tns:GetCategoriesTranslations" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginConsumptions">
+    <wsdl:part element="tns:LoginConsumptions" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetActionTranslations">
+    <wsdl:part element="tns:GetActionTranslations" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginResponse">
+    <wsdl:part element="tns:LoginResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetGroupsResponse">
+    <wsdl:part element="tns:GetGroupsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetDevices">
+    <wsdl:part element="tns:GetDevices" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosAddAndPlayResponse">
+    <wsdl:part element="tns:SonosAddAndPlayResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginAlertLogsResponse">
+    <wsdl:part element="tns:LoginAlertLogsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginGroups">
+    <wsdl:part element="tns:LoginGroups" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetRTDataTypeList">
+    <wsdl:part element="tns:GetRTDataTypeList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetGroup">
+    <wsdl:part element="tns:GetGroup" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetVoiceObjectsResponse">
+    <wsdl:part element="tns:GetVoiceObjectsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginDeviceStateResponse">
+    <wsdl:part element="tns:LoginDeviceStateResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetTranslations">
+    <wsdl:part element="tns:GetTranslations" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetRTPageDescriptorResponse">
+    <wsdl:part element="tns:GetRTPageDescriptorResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetRoomsResponse">
+    <wsdl:part element="tns:GetRoomsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetSites">
+    <wsdl:part element="tns:GetSites" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosReorderTrackResponse">
+    <wsdl:part element="tns:SonosReorderTrackResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="NewLoginInfos">
+    <wsdl:part element="tns:NewLoginInfos" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginAlertLogs">
+    <wsdl:part element="tns:LoginAlertLogs" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosSetRepeat">
+    <wsdl:part element="tns:SonosSetRepeat" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetVarunaAlarms">
+    <wsdl:part element="tns:GetVarunaAlarms" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetAlertLogsResponse">
+    <wsdl:part element="tns:GetAlertLogsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetPieChartValue">
+    <wsdl:part element="tns:GetPieChartValue" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="RegisterNotifTabletteAndroidResponse">
+    <wsdl:part element="tns:RegisterNotifTabletteAndroidResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetAlarmeAccessLevel">
+    <wsdl:part element="tns:GetAlarmeAccessLevel" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosDeleteListResponse">
+    <wsdl:part element="tns:SonosDeleteListResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginInfos">
+    <wsdl:part element="tns:LoginInfos" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetStateTranslations">
+    <wsdl:part element="tns:GetStateTranslations" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetUsers">
+    <wsdl:part element="tns:GetUsers" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetAlarmFaultsStatistics">
+    <wsdl:part element="tns:GetAlarmFaultsStatistics" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetBookmarks">
+    <wsdl:part element="tns:GetBookmarks" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosGetPlaylistResponse">
+    <wsdl:part element="tns:SonosGetPlaylistResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetRoomsNewResponse">
+    <wsdl:part element="tns:GetRoomsNewResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetRoomsNew">
+    <wsdl:part element="tns:GetRoomsNew" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetCameras">
+    <wsdl:part element="tns:GetCameras" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetDeviceTranslationsResponse">
+    <wsdl:part element="tns:GetDeviceTranslationsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosAddFavoriteResponse">
+    <wsdl:part element="tns:SonosAddFavoriteResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetDeviceInstantane">
+    <wsdl:part element="tns:GetDeviceInstantane" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosGetAllGroups">
+    <wsdl:part element="tns:SonosGetAllGroups" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ExecuteAction">
+    <wsdl:part element="tns:ExecuteAction" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="NewLoginInfosResponse">
+    <wsdl:part element="tns:NewLoginInfosResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetUsersResponse">
+    <wsdl:part element="tns:GetUsersResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetInstantTypeList">
+    <wsdl:part element="tns:GetInstantTypeList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetRTDataTypeListResponse">
+    <wsdl:part element="tns:GetRTDataTypeListResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetRTPageDescriptor">
+    <wsdl:part element="tns:GetRTPageDescriptor" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CancelMobilePictureResponse">
+    <wsdl:part element="tns:CancelMobilePictureResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosGetLineInList">
+    <wsdl:part element="tns:SonosGetLineInList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ResetNotif">
+    <wsdl:part element="tns:ResetNotif" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetGroupResponse">
+    <wsdl:part element="tns:GetGroupResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginScenariosResponse">
+    <wsdl:part element="tns:LoginScenariosResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetVarunaEventsResponse">
+    <wsdl:part element="tns:GetVarunaEventsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetCategories">
+    <wsdl:part element="tns:GetCategories" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetScenariosResponse">
+    <wsdl:part element="tns:GetScenariosResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosSetRandom">
+    <wsdl:part element="tns:SonosSetRandom" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetDevicesFromCatg">
+    <wsdl:part element="tns:GetDevicesFromCatg" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosSetRandomResponse">
+    <wsdl:part element="tns:SonosSetRandomResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosAddFavorite">
+    <wsdl:part element="tns:SonosAddFavorite" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetTotalDataValueResponse">
+    <wsdl:part element="tns:GetTotalDataValueResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginBookmarks">
+    <wsdl:part element="tns:LoginBookmarks" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetActionTranslationsResponse">
+    <wsdl:part element="tns:GetActionTranslationsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetDeviceStateResponse">
+    <wsdl:part element="tns:GetDeviceStateResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetAlertLogs">
+    <wsdl:part element="tns:GetAlertLogs" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="RefreshVarunaEvents">
+    <wsdl:part element="tns:RefreshVarunaEvents" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosExplore">
+    <wsdl:part element="tns:SonosExplore" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetCamerasResponse">
+    <wsdl:part element="tns:GetCamerasResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="KeepAlive">
+    <wsdl:part element="tns:KeepAlive" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="RegisterNotifIpad">
+    <wsdl:part element="tns:RegisterNotifIpad" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetConsumptionsResponse">
+    <wsdl:part element="tns:GetConsumptionsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginGroupsResponse">
+    <wsdl:part element="tns:LoginGroupsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="WSException">
+    <wsdl:part element="tns:WSException" name="WSException"/>
+  </wsdl:message>
+  <wsdl:message name="GetTranslationsRESTResponse">
+    <wsdl:part element="tns:GetTranslationsRESTResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginScenarios">
+    <wsdl:part element="tns:LoginScenarios" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosDeleteFavorite">
+    <wsdl:part element="tns:SonosDeleteFavorite" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosListenEntryStreamResponse">
+    <wsdl:part element="tns:SonosListenEntryStreamResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="LoginDevices">
+    <wsdl:part element="tns:LoginDevices" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetSitesResponse">
+    <wsdl:part element="tns:GetSitesResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="RegisterNotifResponse">
+    <wsdl:part element="tns:RegisterNotifResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SonosGetPlaylist">
+    <wsdl:part element="tns:SonosGetPlaylist" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="Mobile">
+    <wsdl:operation name="RegisterNotifPhoneAndroid">
+      <wsdl:input message="tns:RegisterNotifPhoneAndroid" name="RegisterNotifPhoneAndroid"/>
+      <wsdl:output message="tns:RegisterNotifPhoneAndroidResponse" name="RegisterNotifPhoneAndroidResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNotifIpad2">
+      <wsdl:input message="tns:RegisterNotifIpad2" name="RegisterNotifIpad2"/>
+      <wsdl:output message="tns:RegisterNotifIpad2Response" name="RegisterNotifIpad2Response"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="SonosGetAllGroups">
+      <wsdl:input message="tns:SonosGetAllGroups" name="SonosGetAllGroups"/>
+      <wsdl:output message="tns:SonosGetAllGroupsResponse" name="SonosGetAllGroupsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetVarunaAlarms">
+      <wsdl:input message="tns:GetVarunaAlarms" name="GetVarunaAlarms"/>
+      <wsdl:output message="tns:GetVarunaAlarmsResponse" name="GetVarunaAlarmsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="SonosMakeNewGroup">
+      <wsdl:input message="tns:SonosMakeNewGroup" name="SonosMakeNewGroup"/>
+      <wsdl:output message="tns:SonosMakeNewGroupResponse" name="SonosMakeNewGroupResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceInstantane">
+      <wsdl:input message="tns:GetDeviceInstantane" name="GetDeviceInstantane"/>
+      <wsdl:output message="tns:GetDeviceInstantaneResponse" name="GetDeviceInstantaneResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="LoginBookmarks">
+      <wsdl:input message="tns:LoginBookmarks" name="LoginBookmarks"/>
+      <wsdl:output message="tns:LoginBookmarksResponse" name="LoginBookmarksResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="LoginConsumptions">
+      <wsdl:input message="tns:LoginConsumptions" name="LoginConsumptions"/>
+      <wsdl:output message="tns:LoginConsumptionsResponse" name="LoginConsumptionsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAlertLogs">
+      <wsdl:input message="tns:LoginAlertLogs" name="LoginAlertLogs"/>
+      <wsdl:output message="tns:LoginAlertLogsResponse" name="LoginAlertLogsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstantTypeList">
+      <wsdl:input message="tns:GetInstantTypeList" name="GetInstantTypeList"/>
+      <wsdl:output message="tns:GetInstantTypeListResponse" name="GetInstantTypeListResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="KeepAlive">
+      <wsdl:input message="tns:KeepAlive" name="KeepAlive"/>
+      <wsdl:output message="tns:KeepAliveResponse" name="KeepAliveResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetVarunaEvents">
+      <wsdl:input message="tns:GetVarunaEvents" name="GetVarunaEvents"/>
+      <wsdl:output message="tns:GetVarunaEventsResponse" name="GetVarunaEventsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup">
+      <wsdl:input message="tns:GetGroup" name="GetGroup"/>
+      <wsdl:output message="tns:GetGroupResponse" name="GetGroupResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="SonosSetRandom">
+      <wsdl:input message="tns:SonosSetRandom" name="SonosSetRandom"/>
+      <wsdl:output message="tns:SonosSetRandomResponse" name="SonosSetRandomResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="SonosDeleteFavorite">
+      <wsdl:input message="tns:SonosDeleteFavorite" name="SonosDeleteFavorite"/>
+      <wsdl:output message="tns:SonosDeleteFavoriteResponse" name="SonosDeleteFavoriteResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceTranslations">
+      <wsdl:input message="tns:GetDeviceTranslations" name="GetDeviceTranslations"/>
+      <wsdl:output message="tns:GetDeviceTranslationsResponse" name="GetDeviceTranslationsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="ResetInstantValue">
+      <wsdl:input message="tns:ResetInstantValue" name="ResetInstantValue"/>
+      <wsdl:output message="tns:ResetInstantValueResponse" name="ResetInstantValueResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetDevices">
+      <wsdl:input message="tns:GetDevices" name="GetDevices"/>
+      <wsdl:output message="tns:GetDevicesResponse" name="GetDevicesResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNotifTabletteAndroid">
+      <wsdl:input message="tns:RegisterNotifTabletteAndroid" name="RegisterNotifTabletteAndroid"/>
+      <wsdl:output message="tns:RegisterNotifTabletteAndroidResponse" name="RegisterNotifTabletteAndroidResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCameras">
+      <wsdl:input message="tns:GetCameras" name="GetCameras"/>
+      <wsdl:output message="tns:GetCamerasResponse" name="GetCamerasResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="SonosAddAndPlay">
+      <wsdl:input message="tns:SonosAddAndPlay" name="SonosAddAndPlay"/>
+      <wsdl:output message="tns:SonosAddAndPlayResponse" name="SonosAddAndPlayResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlertLogs">
+      <wsdl:input message="tns:GetAlertLogs" name="GetAlertLogs"/>
+      <wsdl:output message="tns:GetAlertLogsResponse" name="GetAlertLogsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmFaultsStatistics">
+      <wsdl:input message="tns:GetAlarmFaultsStatistics" name="GetAlarmFaultsStatistics"/>
+      <wsdl:output message="tns:GetAlarmFaultsStatisticsResponse" name="GetAlarmFaultsStatisticsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteAction">
+      <wsdl:input message="tns:ExecuteAction" name="ExecuteAction"/>
+      <wsdl:output message="tns:ExecuteActionResponse" name="ExecuteActionResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:Login" name="Login"/>
+      <wsdl:output message="tns:LoginResponse" name="LoginResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="SonosRemoveTrackFromPlaylist">
+      <wsdl:input message="tns:SonosRemoveTrackFromPlaylist" name="SonosRemoveTrackFromPlaylist"/>
+      <wsdl:output message="tns:SonosRemoveTrackFromPlaylistResponse" name="SonosRemoveTrackFromPlaylistResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="LoginDevicesFromCatg">
+      <wsdl:input message="tns:LoginDevicesFromCatg" name="LoginDevicesFromCatg"/>
+      <wsdl:output message="tns:LoginDevicesFromCatgResponse" name="LoginDevicesFromCatgResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="ClearAndroidNotificationDataBase">
+      <wsdl:input message="tns:ClearAndroidNotificationDataBase" name="ClearAndroidNotificationDataBase"/>
+      <wsdl:output message="tns:ClearAndroidNotificationDataBaseResponse" name="ClearAndroidNotificationDataBaseResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="SonosExplore">
+      <wsdl:input message="tns:SonosExplore" name="SonosExplore"/>
+      <wsdl:output message="tns:SonosExploreResponse" name="SonosExploreResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="LoginDevices">
+      <wsdl:input message="tns:LoginDevices" name="LoginDevices"/>
+      <wsdl:output message="tns:LoginDevicesResponse" name="LoginDevicesResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetHistValue">
+      <wsdl:input message="tns:GetHistValue" name="GetHistValue"/>
+      <wsdl:output message="tns:GetHistValueResponse" name="GetHistValueResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetTranslations">
+      <wsdl:input message="tns:GetTranslations" name="GetTranslations"/>
+      <wsdl:output message="tns:GetTranslationsResponse" name="GetTranslationsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetStateTranslations">
+      <wsdl:input message="tns:GetStateTranslations" name="GetStateTranslations"/>
+      <wsdl:output message="tns:GetStateTranslationsResponse" name="GetStateTranslationsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="SonosSetCurrentTrackNumber">
+      <wsdl:input message="tns:SonosSetCurrentTrackNumber" name="SonosSetCurrentTrackNumber"/>
+      <wsdl:output message="tns:SonosSetCurrentTrackNumberResponse" name="SonosSetCurrentTrackNumberResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="SonosDeleteList">
+      <wsdl:input message="tns:SonosDeleteList" name="SonosDeleteList"/>
+      <wsdl:output message="tns:SonosDeleteListResponse" name="SonosDeleteListResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetScenarios">
+      <wsdl:input message="tns:GetScenarios" name="GetScenarios"/>
+      <wsdl:output message="tns:GetScenariosResponse" name="GetScenariosResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="LoginExecuteAction">
+      <wsdl:input message="tns:LoginExecuteAction" name="LoginExecuteAction"/>
+      <wsdl:output message="tns:LoginExecuteActionResponse" name="LoginExecuteActionResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceState">
+      <wsdl:input message="tns:GetDeviceState" name="GetDeviceState"/>
+      <wsdl:output message="tns:GetDeviceStateResponse" name="GetDeviceStateResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmeAccessLevel">
+      <wsdl:input message="tns:GetAlarmeAccessLevel" name="GetAlarmeAccessLevel"/>
+      <wsdl:output message="tns:GetAlarmeAccessLevelResponse" name="GetAlarmeAccessLevelResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmHistoryObjectList">
+      <wsdl:input message="tns:GetAlarmHistoryObjectList" name="GetAlarmHistoryObjectList"/>
+      <wsdl:output message="tns:GetAlarmHistoryObjectListResponse" name="GetAlarmHistoryObjectListResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="ResetNotif">
+      <wsdl:input message="tns:ResetNotif" name="ResetNotif"/>
+      <wsdl:output message="tns:ResetNotifResponse" name="ResetNotifResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="LoginGroup">
+      <wsdl:input message="tns:LoginGroup" name="LoginGroup"/>
+      <wsdl:output message="tns:LoginGroupResponse" name="LoginGroupResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetRTPageDescriptor">
+      <wsdl:input message="tns:GetRTPageDescriptor" name="GetRTPageDescriptor"/>
+      <wsdl:output message="tns:GetRTPageDescriptorResponse" name="GetRTPageDescriptorResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="SonosGetPlaylist">
+      <wsdl:input message="tns:SonosGetPlaylist" name="SonosGetPlaylist"/>
+      <wsdl:output message="tns:SonosGetPlaylistResponse" name="SonosGetPlaylistResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetActionTranslations">
+      <wsdl:input message="tns:GetActionTranslations" name="GetActionTranslations"/>
+      <wsdl:output message="tns:GetActionTranslationsResponse" name="GetActionTranslationsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshVarunaEvents">
+      <wsdl:input message="tns:RefreshVarunaEvents" name="RefreshVarunaEvents"/>
+      <wsdl:output message="tns:RefreshVarunaEventsResponse" name="RefreshVarunaEventsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNotif">
+      <wsdl:input message="tns:RegisterNotif" name="RegisterNotif"/>
+      <wsdl:output message="tns:RegisterNotifResponse" name="RegisterNotifResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetRooms">
+      <wsdl:input message="tns:GetRooms" name="GetRooms"/>
+      <wsdl:output message="tns:GetRoomsResponse" name="GetRoomsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNotifIpad">
+      <wsdl:input message="tns:RegisterNotifIpad" name="RegisterNotifIpad"/>
+      <wsdl:output message="tns:RegisterNotifIpadResponse" name="RegisterNotifIpadResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="SonosListenEntryStream">
+      <wsdl:input message="tns:SonosListenEntryStream" name="SonosListenEntryStream"/>
+      <wsdl:output message="tns:SonosListenEntryStreamResponse" name="SonosListenEntryStreamResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetVoiceObjects">
+      <wsdl:input message="tns:GetVoiceObjects" name="GetVoiceObjects"/>
+      <wsdl:output message="tns:GetVoiceObjectsResponse" name="GetVoiceObjectsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="SonosSetRepeat">
+      <wsdl:input message="tns:SonosSetRepeat" name="SonosSetRepeat"/>
+      <wsdl:output message="tns:SonosSetRepeatResponse" name="SonosSetRepeatResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="LoginDeviceState">
+      <wsdl:input message="tns:LoginDeviceState" name="LoginDeviceState"/>
+      <wsdl:output message="tns:LoginDeviceStateResponse" name="LoginDeviceStateResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="LoginInfos">
+      <wsdl:input message="tns:LoginInfos" name="LoginInfos"/>
+      <wsdl:output message="tns:LoginInfosResponse" name="LoginInfosResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetPieChartValue">
+      <wsdl:input message="tns:GetPieChartValue" name="GetPieChartValue"/>
+      <wsdl:output message="tns:GetPieChartValueResponse" name="GetPieChartValueResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <wsdl:input message="tns:GetCategories" name="GetCategories"/>
+      <wsdl:output message="tns:GetCategoriesResponse" name="GetCategoriesResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="CancelMobilePicture">
+      <wsdl:input message="tns:CancelMobilePicture" name="CancelMobilePicture"/>
+      <wsdl:output message="tns:CancelMobilePictureResponse" name="CancelMobilePictureResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="LoginCameras">
+      <wsdl:input message="tns:LoginCameras" name="LoginCameras"/>
+      <wsdl:output message="tns:LoginCamerasResponse" name="LoginCamerasResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="SonosAddFavorite">
+      <wsdl:input message="tns:SonosAddFavorite" name="SonosAddFavorite"/>
+      <wsdl:output message="tns:SonosAddFavoriteResponse" name="SonosAddFavoriteResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <wsdl:input message="tns:GetGroups" name="GetGroups"/>
+      <wsdl:output message="tns:GetGroupsResponse" name="GetGroupsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="LoginScenarios">
+      <wsdl:input message="tns:LoginScenarios" name="LoginScenarios"/>
+      <wsdl:output message="tns:LoginScenariosResponse" name="LoginScenariosResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="SonosReorderTrack">
+      <wsdl:input message="tns:SonosReorderTrack" name="SonosReorderTrack"/>
+      <wsdl:output message="tns:SonosReorderTrackResponse" name="SonosReorderTrackResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetRTDataTypeList">
+      <wsdl:input message="tns:GetRTDataTypeList" name="GetRTDataTypeList"/>
+      <wsdl:output message="tns:GetRTDataTypeListResponse" name="GetRTDataTypeListResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="ApplyMobilePicture">
+      <wsdl:input message="tns:ApplyMobilePicture" name="ApplyMobilePicture"/>
+      <wsdl:output message="tns:ApplyMobilePictureResponse" name="ApplyMobilePictureResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="SonosGetLineInList">
+      <wsdl:input message="tns:SonosGetLineInList" name="SonosGetLineInList"/>
+      <wsdl:output message="tns:SonosGetLineInListResponse" name="SonosGetLineInListResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="LoginGroups">
+      <wsdl:input message="tns:LoginGroups" name="LoginGroups"/>
+      <wsdl:output message="tns:LoginGroupsResponse" name="LoginGroupsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalDataValue">
+      <wsdl:input message="tns:GetTotalDataValue" name="GetTotalDataValue"/>
+      <wsdl:output message="tns:GetTotalDataValueResponse" name="GetTotalDataValueResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetPicture">
+      <wsdl:input message="tns:GetPicture" name="GetPicture"/>
+      <wsdl:output message="tns:GetPictureResponse" name="GetPictureResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetConsumptions">
+      <wsdl:input message="tns:GetConsumptions" name="GetConsumptions"/>
+      <wsdl:output message="tns:GetConsumptionsResponse" name="GetConsumptionsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="NewLoginInfos">
+      <wsdl:input message="tns:NewLoginInfos" name="NewLoginInfos"/>
+      <wsdl:output message="tns:NewLoginInfosResponse" name="NewLoginInfosResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input message="tns:GetUsers" name="GetUsers"/>
+      <wsdl:output message="tns:GetUsersResponse" name="GetUsersResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetTranslationsREST">
+      <wsdl:input message="tns:GetTranslationsREST" name="GetTranslationsREST"/>
+      <wsdl:output message="tns:GetTranslationsRESTResponse" name="GetTranslationsRESTResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookmarks">
+      <wsdl:input message="tns:GetBookmarks" name="GetBookmarks"/>
+      <wsdl:output message="tns:GetBookmarksResponse" name="GetBookmarksResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoomsNew">
+      <wsdl:input message="tns:GetRoomsNew" name="GetRoomsNew"/>
+      <wsdl:output message="tns:GetRoomsNewResponse" name="GetRoomsNewResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoriesTranslations">
+      <wsdl:input message="tns:GetCategoriesTranslations" name="GetCategoriesTranslations"/>
+      <wsdl:output message="tns:GetCategoriesTranslationsResponse" name="GetCategoriesTranslationsResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetDevicesFromCatg">
+      <wsdl:input message="tns:GetDevicesFromCatg" name="GetDevicesFromCatg"/>
+      <wsdl:output message="tns:GetDevicesFromCatgResponse" name="GetDevicesFromCatgResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetRTDataCategoriesList">
+      <wsdl:input message="tns:GetRTDataCategoriesList" name="GetRTDataCategoriesList"/>
+      <wsdl:output message="tns:GetRTDataCategoriesListResponse" name="GetRTDataCategoriesListResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="ResetTotalValue">
+      <wsdl:input message="tns:ResetTotalValue" name="ResetTotalValue"/>
+      <wsdl:output message="tns:ResetTotalValueResponse" name="ResetTotalValueResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetSites">
+      <wsdl:input message="tns:GetSites" name="GetSites"/>
+      <wsdl:output message="tns:GetSitesResponse" name="GetSitesResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="SonosAddTrackInPlaylist">
+      <wsdl:input message="tns:SonosAddTrackInPlaylist" name="SonosAddTrackInPlaylist"/>
+      <wsdl:output message="tns:SonosAddTrackInPlaylistResponse" name="SonosAddTrackInPlaylistResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmFaultObjectList">
+      <wsdl:input message="tns:GetAlarmFaultObjectList" name="GetAlarmFaultObjectList"/>
+      <wsdl:output message="tns:GetAlarmFaultObjectListResponse" name="GetAlarmFaultObjectListResponse"/>
+      <wsdl:fault message="tns:WSException" name="WSException"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MobileSoapBinding" type="tns:Mobile">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="RegisterNotifIpad2">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="RegisterNotifIpad2">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RegisterNotifIpad2Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNotifPhoneAndroid">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="RegisterNotifPhoneAndroid">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RegisterNotifPhoneAndroidResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetVarunaAlarms">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetVarunaAlarms">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetVarunaAlarmsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SonosGetAllGroups">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SonosGetAllGroups">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonosGetAllGroupsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SonosMakeNewGroup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SonosMakeNewGroup">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonosMakeNewGroupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceInstantane">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetDeviceInstantane">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetDeviceInstantaneResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginBookmarks">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="LoginBookmarks">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="LoginBookmarksResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginConsumptions">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="LoginConsumptions">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="LoginConsumptionsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAlertLogs">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="LoginAlertLogs">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="LoginAlertLogsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstantTypeList">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetInstantTypeList">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetInstantTypeListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetGroup">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetGroupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetVarunaEvents">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetVarunaEvents">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetVarunaEventsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="KeepAlive">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="KeepAlive">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="KeepAliveResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SonosDeleteFavorite">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SonosDeleteFavorite">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonosDeleteFavoriteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SonosSetRandom">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SonosSetRandom">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonosSetRandomResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceTranslations">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetDeviceTranslations">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetDeviceTranslationsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDevices">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetDevices">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetDevicesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ResetInstantValue">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="ResetInstantValue">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ResetInstantValueResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNotifTabletteAndroid">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="RegisterNotifTabletteAndroid">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RegisterNotifTabletteAndroidResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCameras">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetCameras">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetCamerasResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SonosAddAndPlay">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SonosAddAndPlay">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonosAddAndPlayResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlertLogs">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetAlertLogs">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetAlertLogsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteAction">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="ExecuteAction">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ExecuteActionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmFaultsStatistics">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetAlarmFaultsStatistics">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetAlarmFaultsStatisticsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="Login">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="LoginResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SonosRemoveTrackFromPlaylist">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SonosRemoveTrackFromPlaylist">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonosRemoveTrackFromPlaylistResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginDevicesFromCatg">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="LoginDevicesFromCatg">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="LoginDevicesFromCatgResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ClearAndroidNotificationDataBase">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="ClearAndroidNotificationDataBase">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ClearAndroidNotificationDataBaseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginDevices">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="LoginDevices">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="LoginDevicesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SonosExplore">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SonosExplore">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonosExploreResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetHistValue">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetHistValue">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetHistValueResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTranslations">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetTranslations">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetTranslationsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetStateTranslations">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetStateTranslations">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetStateTranslationsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetScenarios">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetScenarios">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetScenariosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SonosDeleteList">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SonosDeleteList">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonosDeleteListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SonosSetCurrentTrackNumber">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SonosSetCurrentTrackNumber">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonosSetCurrentTrackNumberResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginExecuteAction">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="LoginExecuteAction">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="LoginExecuteActionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmeAccessLevel">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetAlarmeAccessLevel">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetAlarmeAccessLevelResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceState">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetDeviceState">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetDeviceStateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmHistoryObjectList">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetAlarmHistoryObjectList">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetAlarmHistoryObjectListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginGroup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="LoginGroup">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="LoginGroupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ResetNotif">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="ResetNotif">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ResetNotifResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRTPageDescriptor">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetRTPageDescriptor">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetRTPageDescriptorResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SonosGetPlaylist">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SonosGetPlaylist">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonosGetPlaylistResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetActionTranslations">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetActionTranslations">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetActionTranslationsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshVarunaEvents">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="RefreshVarunaEvents">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RefreshVarunaEventsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRooms">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetRooms">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetRoomsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNotif">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="RegisterNotif">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RegisterNotifResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNotifIpad">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="RegisterNotifIpad">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RegisterNotifIpadResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SonosListenEntryStream">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SonosListenEntryStream">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonosListenEntryStreamResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetVoiceObjects">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetVoiceObjects">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetVoiceObjectsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginDeviceState">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="LoginDeviceState">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="LoginDeviceStateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SonosSetRepeat">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SonosSetRepeat">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonosSetRepeatResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginInfos">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="LoginInfos">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="LoginInfosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetCategories">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetCategoriesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPieChartValue">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetPieChartValue">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetPieChartValueResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CancelMobilePicture">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="CancelMobilePicture">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CancelMobilePictureResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginCameras">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="LoginCameras">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="LoginCamerasResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SonosAddFavorite">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SonosAddFavorite">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonosAddFavoriteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetGroups">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetGroupsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginScenarios">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="LoginScenarios">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="LoginScenariosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SonosReorderTrack">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SonosReorderTrack">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonosReorderTrackResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRTDataTypeList">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetRTDataTypeList">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetRTDataTypeListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ApplyMobilePicture">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="ApplyMobilePicture">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ApplyMobilePictureResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SonosGetLineInList">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SonosGetLineInList">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonosGetLineInListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginGroups">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="LoginGroups">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="LoginGroupsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetConsumptions">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetConsumptions">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetConsumptionsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPicture">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetPicture">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetPictureResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalDataValue">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetTotalDataValue">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetTotalDataValueResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="NewLoginInfos">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="NewLoginInfos">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="NewLoginInfosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetUsers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetUsersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTranslationsREST">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetTranslationsREST">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetTranslationsRESTResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookmarks">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetBookmarks">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetBookmarksResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoomsNew">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetRoomsNew">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetRoomsNewResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoriesTranslations">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetCategoriesTranslations">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetCategoriesTranslationsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDevicesFromCatg">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetDevicesFromCatg">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetDevicesFromCatgResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRTDataCategoriesList">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetRTDataCategoriesList">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetRTDataCategoriesListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ResetTotalValue">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="ResetTotalValue">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ResetTotalValueResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSites">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetSites">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetSitesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SonosAddTrackInPlaylist">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SonosAddTrackInPlaylist">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonosAddTrackInPlaylistResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmFaultObjectList">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="GetAlarmFaultObjectList">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetAlarmFaultObjectListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WSException">
+        <soap:fault name="WSException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Mobile">
+    <wsdl:port binding="tns:MobileSoapBinding" name="MobilePort">
+      <soap:address location="http://10.0.1.6:8080/DomoBox/Mobile"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
