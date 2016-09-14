@@ -1,16 +1,33 @@
 package godomus
 
-import "fmt"
+import (
+	"fmt"
+	"net/url"
+	"strings"
+)
 
 type Domus struct {
-	User,
-	Password,
-	Api,
-	HostUrl string
+	siteKey    SiteKey
+	userKey    UserKey
+	password   string
+	apiUrl     *url.URL
+	socketAddr string
+	sessionKey SessionKey
+	Debug      bool
 }
 
-func New(user, password, hostUrl string) *Domus {
-	d := &Domus{User: user, Password: password, HostUrl: hostUrl}
-	d.Api = fmt.Sprintf("%s/DomoBox/rs", hostUrl)
-	return d
+// New returns a new Domus object
+// socketPort is the port of the LD event socket. If 0, event handling is disabled.
+func New(apiUrl string, socketPort int) (*Domus, error) {
+	d := new(Domus)
+	api, err := url.Parse(fmt.Sprintf("%s/DomoBox/rs", apiUrl))
+	if err != nil {
+		return nil, err
+	}
+	d.apiUrl = api
+	if socketPort != 0 {
+		host := strings.Split(api.Host, ":")[0] // take host from api url without port
+		d.socketAddr = fmt.Sprintf("%s:%d", host, socketPort)
+	}
+	return d, nil
 }
