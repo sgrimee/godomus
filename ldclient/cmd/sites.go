@@ -1,8 +1,7 @@
 package cmd
 
 import (
-	"fmt"
-	"os"
+	"log"
 
 	"github.com/spf13/cobra"
 )
@@ -15,8 +14,7 @@ var sitesCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		sites, err := domus.GetSites()
 		if err != nil {
-			fmt.Println(err)
-			os.Exit(-1)
+			log.Fatal(err)
 		}
 		output(outputFormat, sites)
 	},

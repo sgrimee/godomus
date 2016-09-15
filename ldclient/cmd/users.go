@@ -1,8 +1,7 @@
 package cmd
 
 import (
-	"fmt"
-	"os"
+	"log"
 
 	"github.com/sgrimee/godomus"
 	"github.com/spf13/cobra"
@@ -19,12 +18,10 @@ var usersCmd = &cobra.Command{
 		sk := godomus.NewSiteKey(viper.GetInt("site"))
 		users, err := domus.GetUsers(sk)
 		if err != nil {
-			fmt.Println(err)
-			os.Exit(-1)
+			log.Fatal(err)
 		}
 		if len(users) < 1 {
-			fmt.Println("No users found, is the site correct?")
-			os.Exit(-1)
+			log.Fatal("No users found, is the site correct?")
 		}
 		output(outputFormat, users)
 

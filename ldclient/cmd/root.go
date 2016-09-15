@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"os"
+	"log"
 
 	"github.com/davecgh/go-spew/spew"
 	"github.com/sgrimee/godomus"
@@ -32,8 +32,7 @@ get and set devices state and also continuously listen for events.`,
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	if err := RootCmd.Execute(); err != nil {
-		fmt.Println(err)
-		os.Exit(-1)
+		log.Fatal(err)
 	}
 }
 
@@ -95,8 +94,7 @@ func initDomus() {
 		viper.GetInt("socket_port"),
 	)
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(-1)
+		log.Fatal(err)
 	}
 	if debug {
 		domus.Debug = true
@@ -106,20 +104,17 @@ func initDomus() {
 // validateSiteSet ensures a site number was provided
 func validateSiteSet() {
 	if !viper.IsSet("site") || (viper.GetInt("site") < 1) {
-		fmt.Println("You must give a site (int), or set it in config file")
-		os.Exit(-1)
+		log.Fatal("You must give a site (int), or set it in config file")
 	}
 }
 
 // validateUserSet ensures a userid and password were provided
 func validateUserSet() {
 	if !viper.IsSet("user") || (viper.GetInt("user") < 1) {
-		fmt.Println("You must give a user (int), or set it in config file")
-		os.Exit(-1)
+		log.Fatal("You must give a user (int), or set it in config file")
 	}
 	if !viper.IsSet("password") || (viper.GetString("password") == "") {
-		fmt.Println("You must give a password, or set it in config file")
-		os.Exit(-1)
+		log.Fatal("You must give a password, or set it in config file")
 	}
 }
 
@@ -132,8 +127,7 @@ func domusInfos() *godomus.LoginInfos {
 	pass := viper.GetString("password")
 	infos, err := domus.LoginInfos(sk, uk, pass)
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(-1)
+		log.Fatal(err)
 	}
 	return infos
 }
@@ -146,7 +140,6 @@ func domusLogin() {
 	pass := viper.GetString("password")
 	_, err := domus.Login(sk, uk, pass)
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(-1)
+		log.Fatal(err)
 	}
 }

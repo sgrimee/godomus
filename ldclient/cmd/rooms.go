@@ -1,8 +1,7 @@
 package cmd
 
 import (
-	"fmt"
-	"os"
+	"log"
 
 	"github.com/sgrimee/godomus"
 	"github.com/spf13/cobra"
@@ -16,8 +15,7 @@ var roomsCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		rooms := godomus.RoomsFromInfos(domusInfos())
 		if len(rooms) < 1 {
-			fmt.Println("No rooms found, are site and userid correct?")
-			os.Exit(-1)
+			log.Fatal("No rooms found, are site and userid correct?")
 		}
 		output(outputFormat, rooms)
 	},

@@ -3,7 +3,7 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
-	"os"
+	"log"
 
 	"github.com/sgrimee/godomus"
 
@@ -21,15 +21,14 @@ func output(format string, obj interface{}) {
 	case "text":
 		printText(obj)
 	default:
-		fmt.Printf("Unknown output format: %s\n", format)
+		log.Fatalf("Unknown output format: %s\n", format)
 	}
 }
 
 func printJson(obj interface{}) {
 	j, err := json.Marshal(obj)
 	if err != nil {
-		fmt.Printf("err: %v\n", err)
-		os.Exit(-1)
+		log.Fatal(err)
 	}
 	fmt.Println(string(j))
 }
@@ -37,8 +36,7 @@ func printJson(obj interface{}) {
 func printYaml(obj interface{}) {
 	y, err := yaml.Marshal(obj)
 	if err != nil {
-		fmt.Printf("err: %s\n", err)
-		os.Exit(-1)
+		log.Fatal(err)
 	}
 	fmt.Println(string(y))
 }
@@ -46,7 +44,7 @@ func printYaml(obj interface{}) {
 func printText(obj interface{}) {
 	switch t := obj.(type) {
 	default:
-		fmt.Printf("printText does not support type %T\n", t)
+		log.Fatalf("printText does not support type %T\n", t)
 	case godomus.Sites:
 		for _, e := range obj.(godomus.Sites) {
 			fmt.Printf("| %5d | %s\n", e.Key.Num(), e.Label)
