@@ -1,5 +1,4 @@
 // Generate a bash completion script
-// Not working for me at the moment...
 
 package main
 

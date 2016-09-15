@@ -26,6 +26,20 @@ You can also change the output format between yaml, json and text (default). For
 ldclient get devices --room 5 -o json | jq
 ```
 
+## bash completion
+
+You can generate a bash completion file:
+
+```
+cd bash-completion
+go run main.go
+```
+
+And source the resulting file.
+
+Follow instructions to install and enable bash completion for your platform. 
+This [link](https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion) may be useful 
+
 ## Todo
 - launch scenario
 - turn device on/off
