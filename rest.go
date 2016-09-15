@@ -3,6 +3,7 @@ package godomus
 import (
 	"crypto/tls"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -112,6 +113,9 @@ func (d *Domus) LoginInfos(sk SiteKey, uk UserKey, password string) (*LoginInfos
 		return nil, err
 	}
 	defer resp.Body.Close()
+	if resp.StatusCode == 204 {
+		return nil, errors.New("Invalid credentials")
+	}
 	var infos LoginInfos
 
 	if err := json.NewDecoder(resp.Body).Decode(&infos); err != nil {
@@ -138,6 +142,9 @@ func (d *Domus) DevicesInRoom(rk RoomKey, class CategoryClassId) (Devices, error
 		return nil, err
 	}
 	defer resp.Body.Close()
+	if resp.StatusCode == 204 {
+		return nil, errors.New("Invalid credentials")
+	}
 	var body struct {
 		Devices []Device `json:"device"`
 	}
