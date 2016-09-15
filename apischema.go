@@ -160,3 +160,10 @@ type LoginInfos struct {
 	// Devices    interface{}                   `json:"devices"`
 	// Groups     interface{}                   `json:"groups"`
 }
+
+type Category struct {
+	CatClsId     CategoryClassId `json:"category_clsid"`
+	Label        string          `json:"label"`
+	PictureKey   string          `json:"picture_key"`
+	DevicesCount string          `json:"devices_count"`
+}

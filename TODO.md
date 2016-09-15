@@ -1,9 +1,13 @@
 ## Lib
-- move test data into config file
+- handle invalid session {"message":"","code":"INVALID_SESSION"}, refresh token
+- launch scenarios (/ExecuteAction ?)
+- set device state (/ExecuteAction ?)
+- check /GetDeviceState
+- check /GetDevicesFromCatg
 - move output.go to the godomus lib
-- handle incorrect credentials (logininfos gives EOF error)
-- refresh token when needed
-- set device state
-- launch scenarios
+- implement groups? /GetGroup, /GetGroups
 
 ## Client
+- filter get devices by category
+- flag to show states of devices
+- flag to show actions of devices

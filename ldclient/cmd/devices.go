@@ -12,13 +12,8 @@ var room int
 // devicesCmd represents the devices command
 var devicesCmd = &cobra.Command{
 	Use:   "devices",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "Get devices in a room",
+	Long:  `Get list of devices in the given room`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if room == 0 {
 			log.Fatal("You must specify the room number")

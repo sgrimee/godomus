@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"strconv"
 
 	"github.com/sgrimee/godomus"
 
@@ -64,6 +65,11 @@ func printText(obj interface{}) {
 	case godomus.Devices:
 		for _, e := range obj.(godomus.Devices) {
 			fmt.Printf("| %5d | %18s | %s\n", e.Key.Num(), e.RoomLabel, e.Label)
+		}
+	case godomus.Categories:
+		for _, e := range obj.(godomus.Categories) {
+			count, _ := strconv.Atoi(e.DevicesCount)
+			fmt.Printf("| %16s | %25s | %2d devices\n", e.CatClsId, e.Label, count)
 		}
 	}
 }

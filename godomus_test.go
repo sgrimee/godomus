@@ -148,3 +148,14 @@ func TestListenForEvents(t *testing.T) {
 		t.Fatal(err)
 	}
 }
+
+func TestCategories(t *testing.T) {
+	categories, err := domus.GetCategories(testRoomKey)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(categories) <= 0 {
+		t.Fatal("No categories received.")
+	}
+	t.Logf("Categories:\n%+v\n", categories)
+}

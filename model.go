@@ -7,6 +7,7 @@ type Users []User
 type Rooms []Room
 type Devices []Device
 type Scenarios []Scenario
+type Categories []Category
 
 // RoomsFromInfos extracts rooms from an info object
 // This only keeps rooms with a valid RoomKey, removing GROUPS, CAMERAS, etc

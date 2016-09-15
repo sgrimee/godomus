@@ -153,3 +153,25 @@ func (d *Domus) DevicesInRoom(rk RoomKey, class CategoryClassId) (Devices, error
 	}
 	return Devices(body.Devices), nil
 }
+
+func (d *Domus) GetCategories(rk RoomKey) (Categories, error) {
+	queries := map[string]string{
+		"session_key": string(d.sessionKey),
+		"room_key":    string(rk),
+	}
+	resp, err := d.Get("/Mobile/GetCategories", queries)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode == 204 {
+		return nil, errors.New("Invalid credentials")
+	}
+	var body struct {
+		Categories []Category `json:"category"`
+	}
+	if err := json.NewDecoder(resp.Body).Decode(&body); err != nil {
+		return nil, err
+	}
+	return Categories(body.Categories), nil
+}
