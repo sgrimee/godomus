@@ -63,5 +63,9 @@ func printText(obj interface{}) {
 		for _, e := range obj.(godomus.Scenarios) {
 			fmt.Printf("| %5d | %s\n", e.Key.Num(), e.Label)
 		}
+	case godomus.Devices:
+		for _, e := range obj.(godomus.Devices) {
+			fmt.Printf("| %5d | %18s | %s\n", e.Key.Num(), e.RoomLabel, e.Label)
+		}
 	}
 }

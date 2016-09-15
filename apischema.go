@@ -18,7 +18,6 @@ type DeviceKey string
 
 // NewSiteKey returns a SiteKey from a site number as integer
 func NewSiteKey(num int) SiteKey {
-	// SITE_00000000000000000000000000000000001
 	return SiteKey(fmt.Sprintf("SITE_%035d", num))
 }
 
@@ -34,7 +33,6 @@ func (sk SiteKey) Num() int {
 
 // NewUserKey returns a UserKey from a user number as integer
 func NewUserKey(num int) UserKey {
-	// USER_00000000000000000000000000000000001
 	return UserKey(fmt.Sprintf("USER_%035d", num))
 }
 
@@ -50,7 +48,6 @@ func (uk UserKey) Num() int {
 
 // NewRoomKey returns a RoomKey from a room number as integer
 func NewRoomKey(num int) RoomKey {
-	// ROOM_00000000000000000000000000000000001
 	return RoomKey(fmt.Sprintf("ROOM_%035d", num))
 }
 
@@ -66,13 +63,27 @@ func (uk RoomKey) Num() int {
 
 // NewScenarioKey returns a Scenario from a scenario number as integer
 func NewScenarioKey(num int) ScenarioKey {
-	// SCENARIO_00000000000000000000000000000000001
 	return ScenarioKey(fmt.Sprintf("SCNR_%035d", num))
 }
 
 // (ScenarioKey) Num returns the user number as integer
 func (uk ScenarioKey) Num() int {
 	ns := strings.TrimPrefix(string(uk), "SCNR_")
+	num, err := strconv.Atoi(ns)
+	if err != nil {
+		panic(err)
+	}
+	return num
+}
+
+// NewDeviceKey returns a Scenario from a scenario number as integer
+func NewDeviceKey(num int) DeviceKey {
+	return DeviceKey(fmt.Sprintf("DEVC_%035d", num))
+}
+
+// (DeviceKey) Num returns the user number as integer
+func (dk DeviceKey) Num() int {
+	ns := strings.TrimPrefix(string(dk), "DEVC_")
 	num, err := strconv.Atoi(ns)
 	if err != nil {
 		panic(err)

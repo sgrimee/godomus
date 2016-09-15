@@ -5,7 +5,6 @@ import (
 	"os"
 	"testing"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/spf13/viper"
 )
 
@@ -44,8 +43,8 @@ func initConfig() {
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Println("Using config file:", viper.ConfigFileUsed())
 	}
-	fmt.Println("Config:")
-	spew.Dump(viper.AllSettings())
+	//fmt.Println("Config:")
+	//spew.Dump(viper.AllSettings())
 
 	testSiteKey = NewSiteKey(viper.GetInt("site"))
 	testUserKey = NewUserKey(viper.GetInt("user"))

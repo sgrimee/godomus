@@ -137,3 +137,16 @@ func domusInfos() *godomus.LoginInfos {
 	}
 	return infos
 }
+
+func domusLogin() {
+	validateSiteSet()
+	validateUserSet()
+	sk := godomus.NewSiteKey(viper.GetInt("site"))
+	uk := godomus.NewUserKey(viper.GetInt("user"))
+	pass := viper.GetString("password")
+	_, err := domus.Login(sk, uk, pass)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(-1)
+	}
+}

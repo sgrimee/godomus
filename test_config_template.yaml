@@ -1,0 +1,9 @@
+# configuration for end-to-end tests with a real LD server
+# adjust and rename this file to ./.ldclient.yaml
+site: 1
+user: 3
+url: https://server.public.ip:8443
+password: abc123
+socket_port: 51023
+test_room: 4
+test_socket_address: server.public.ip:51023
