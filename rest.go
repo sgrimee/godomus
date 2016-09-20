@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"net/http"
 	"net/url"
 )
@@ -39,6 +40,50 @@ func (d *Domus) Get(resource string, queries map[string]string) (*http.Response,
 		return nil, err
 	}
 	return resp, nil
+}
+
+// GetWithSession makes a Get call that requires a session key
+// If ensures the session key is set
+// If the session has expired it tries to refresh it
+// A login must have been performed before using GetWithSession
+func (d *Domus) GetWithSession(resource string, queries map[string]string) (*http.Response, error) {
+	if d.sessionKey == "" {
+		return nil, errors.New("DevicesInRoom: session key is not set, login first")
+	}
+	q := map[string]string{
+		"session_key": string(d.sessionKey),
+	}
+	for k, v := range queries {
+		q[k] = v
+	}
+	resp, err := d.Get(resource, q)
+	if resp.StatusCode != 200 {
+		e := jsonError(resp)
+		if e.Error() == "INVALID_SESSION" {
+			// make a second attempt after logging in again to refresh sessionKey
+			d.Login(d.siteKey, d.userKey, d.password)
+			resp, err = d.Get(resource, q)
+		} else {
+			return nil, e
+		}
+	}
+	return resp, err
+}
+
+// jsonError tries to get an error code from the Json in the body
+func jsonError(resp *http.Response) error {
+	var errBody struct {
+		Message string
+		Code    string
+	}
+	if err := json.NewDecoder(resp.Body).Decode(&errBody); err != nil {
+		return err
+	}
+	if errBody.Code != "" {
+		return errors.New(errBody.Code)
+	} else {
+		return errors.New(resp.Status)
+	}
 }
 
 // GetSites returns the list of sites managed by the server
@@ -90,10 +135,13 @@ func (d *Domus) Login(sk SiteKey, uk UserKey, password string) (SessionKey, erro
 	var n int
 	body := make([]byte, sessionKeyLen+10)
 	if n, err = resp.Body.Read(body); n <= 0 {
+		if err == io.EOF {
+			return "", errors.New("Login: invalid credentials (EOF received)")
+		}
 		return "", err
 	}
 	if n != sessionKeyLen {
-		return "", fmt.Errorf("Session key should be 40 bytes, is %d: %s", n, body)
+		return "", fmt.Errorf("Login: session key should be 40 bytes, is %d: %s", n, body)
 	}
 	d.sessionKey = SessionKey(body[:sessionKeyLen])
 	d.siteKey = sk
@@ -114,7 +162,7 @@ func (d *Domus) LoginInfos(sk SiteKey, uk UserKey, password string) (*LoginInfos
 	}
 	defer resp.Body.Close()
 	if resp.StatusCode == 204 {
-		return nil, errors.New("Invalid credentials")
+		return nil, errors.New("LoginInfos: invalid credentials")
 	}
 	var infos LoginInfos
 
@@ -131,20 +179,16 @@ func (d *Domus) LoginInfos(sk SiteKey, uk UserKey, password string) (*LoginInfos
 // If class is "" then all devices are returned, otherwise only devices of that class
 func (d *Domus) DevicesInRoom(rk RoomKey, class CategoryClassId) (Devices, error) {
 	queries := map[string]string{
-		"session_key": string(d.sessionKey),
-		"room_key":    string(rk),
+		"room_key": string(rk),
 	}
 	if class != "" {
 		queries["category_clsid"] = string(class)
 	}
-	resp, err := d.Get("/Mobile/GetDevices", queries)
+	resp, err := d.GetWithSession("/Mobile/GetDevices", queries)
 	if err != nil {
 		return nil, err
 	}
 	defer resp.Body.Close()
-	if resp.StatusCode == 204 {
-		return nil, errors.New("Invalid credentials")
-	}
 	var body struct {
 		Devices []Device `json:"device"`
 	}
@@ -154,19 +198,16 @@ func (d *Domus) DevicesInRoom(rk RoomKey, class CategoryClassId) (Devices, error
 	return Devices(body.Devices), nil
 }
 
+// GetCategories returns the list of device categories in the given roomId
 func (d *Domus) GetCategories(rk RoomKey) (Categories, error) {
 	queries := map[string]string{
-		"session_key": string(d.sessionKey),
-		"room_key":    string(rk),
+		"room_key": string(rk),
 	}
-	resp, err := d.Get("/Mobile/GetCategories", queries)
+	resp, err := d.GetWithSession("/Mobile/GetCategories", queries)
 	if err != nil {
 		return nil, err
 	}
 	defer resp.Body.Close()
-	if resp.StatusCode == 204 {
-		return nil, errors.New("Invalid credentials")
-	}
 	var body struct {
 		Categories []Category `json:"category"`
 	}

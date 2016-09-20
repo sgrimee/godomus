@@ -103,6 +103,14 @@ func TestGetUsers(t *testing.T) {
 	}
 }
 
+func TestSessionRefresh(t *testing.T) {
+	domus.sessionKey = "bogus"
+	_, err := domus.DevicesInRoom(testRoomKey, "")
+	if err != nil {
+		t.Fatal(err)
+	}
+}
+
 func TestLoginInfos(t *testing.T) {
 	infos, err := domus.LoginInfos(testSiteKey, testUserKey, testPassword)
 	if err != nil {

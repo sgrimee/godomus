@@ -1,5 +1,4 @@
 ## Lib
-- handle invalid session {"message":"","code":"INVALID_SESSION"}, refresh token
 - launch scenarios (/ExecuteAction ?)
 - set device state (/ExecuteAction ?)
 - check /GetDeviceState
@@ -11,3 +10,5 @@
 - filter get devices by category
 - flag to show states of devices
 - flag to show actions of devices
+- room detection from text arguments
+- device id detection from text arguments
