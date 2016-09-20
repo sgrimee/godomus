@@ -132,6 +132,7 @@ func domusInfos() *godomus.LoginInfos {
 	return infos
 }
 
+// domusLogin performs a login and stores the session key
 func domusLogin() {
 	validateSiteSet()
 	validateUserSet()
