@@ -198,7 +198,7 @@ func (d *Domus) DevicesInRoom(rk RoomKey, class CategoryClassId) (Devices, error
 	return Devices(body.Devices), nil
 }
 
-// GetCategories returns the list of device categories in the given roomId
+// GetCategories returns the list of categories in the given roomId
 func (d *Domus) GetCategories(rk RoomKey) (Categories, error) {
 	queries := map[string]string{
 		"room_key": string(rk),
@@ -215,4 +215,19 @@ func (d *Domus) GetCategories(rk RoomKey) (Categories, error) {
 		return nil, err
 	}
 	return Categories(body.Categories), nil
+}
+
+// ExecuteAction runs the action on property of device
+func (d *Domus) ExecuteAction(action ActionClassId, property PropClassId, dk DeviceKey) error {
+	queries := map[string]string{
+		"target_key":   string(dk),
+		"prop_clsid":   string(property),
+		"action_clsid": string(action),
+	}
+	resp, err := d.GetWithSession("/Mobile/ExecuteAction", queries)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+	return nil
 }

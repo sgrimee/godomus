@@ -22,6 +22,9 @@ var (
 	testSocketPort int
 	testSocketAddr string
 	testRoomKey    RoomKey
+	testDeviceKey  DeviceKey
+	testProperty   PropClassId
+	testAction     ActionClassId
 )
 
 func TestMain(m *testing.M) {
@@ -53,6 +56,9 @@ func initConfig() {
 	testSocketPort = viper.GetInt("socket_port")
 	testSocketAddr = viper.GetString("test_socket_addr")
 	testRoomKey = NewRoomKey(viper.GetInt("test_room"))
+	testDeviceKey = NewDeviceKey(viper.GetInt("test_device"))
+	testProperty = PropClassId(viper.GetString("test_property"))
+	testAction = ActionClassId(viper.GetString("test_action"))
 }
 
 func TestKeyConversions(t *testing.T) {
@@ -166,4 +172,11 @@ func TestCategories(t *testing.T) {
 		t.Fatal("No categories received.")
 	}
 	t.Logf("Categories:\n%+v\n", categories)
+}
+
+func testExecuteAction(t *testing.T) {
+	err := domus.ExecuteAction(testAction, testProperty, testDeviceKey)
+	if err != nil {
+		t.Fatal(err)
+	}
 }

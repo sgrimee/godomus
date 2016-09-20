@@ -12,8 +12,8 @@ var room int
 // devicesCmd represents the devices command
 var devicesCmd = &cobra.Command{
 	Use:   "devices",
-	Short: "Get devices in a room",
-	Long:  `Get list of devices in the given room`,
+	Short: "Get devices in one or all rooms (slow)",
+	Long:  `Get list of devices in the given room (or all rooms)`,
 	Run: func(cmd *cobra.Command, args []string) {
 		var (
 			roomKeys []godomus.RoomKey
