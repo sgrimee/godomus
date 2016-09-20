@@ -7,19 +7,50 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var categoriesCmdRoom int
+
 // categoriesCmd represents the categories command
 var categoriesCmd = &cobra.Command{
 	Use:   "categories",
-	Short: "Get categories of devices in a room",
-	Long:  `Get categories of devices in a room`,
+	Short: "Get categories",
+	Long:  `Get categories of devices in a room, or all rooms (slow)`,
 	Run: func(cmd *cobra.Command, args []string) {
-		if room == 0 {
-			log.Fatal("You must specify the room number")
+		var (
+			roomKeys   []godomus.RoomKey
+			categories godomus.Categories
+		)
+		// only one room if specified, otherwise all rooms
+		if categoriesCmdRoom != 0 {
+			roomKeys = append(roomKeys, godomus.NewRoomKey(categoriesCmdRoom))
+			domusLogin()
+		} else {
+			rooms := godomus.RoomsFromInfos(domusInfos())
+			if len(rooms) < 1 {
+				log.Fatal("No rooms found, are site and userid correct?")
+			}
+			for _, r := range rooms {
+				roomKeys = append(roomKeys, r.Key)
+			}
 		}
-		domusLogin()
-		categories, err := domus.GetCategories(godomus.NewRoomKey(room))
-		if err != nil {
-			log.Fatalf("Could not get categories for room %d: %s\n", room, err)
+
+		// use a map for de-duplication and device count addition
+		cmap := make(map[godomus.CategoryClassId]godomus.Category)
+		for _, rk := range roomKeys {
+			cir, err := domus.CategoriesInRoom(rk)
+			if err != nil {
+				log.Fatalf("Could not get categories for room %d: %s\n", rk.Num(), err)
+			}
+			for _, v := range cir {
+				if _, ok := cmap[v.CatClsId]; ok {
+					v.DevicesCount += cmap[v.CatClsId].DevicesCount
+					cmap[v.CatClsId] = v
+					continue
+				}
+				cmap[v.CatClsId] = v
+			}
+		}
+		for _, v := range cmap {
+			categories = append(categories, v)
 		}
 		output(outputFormat, categories)
 	},
@@ -27,6 +58,5 @@ var categoriesCmd = &cobra.Command{
 
 func init() {
 	getCmd.AddCommand(categoriesCmd)
-	categoriesCmd.Flags().IntVarP(&room, "room", "r", 0, "Room number")
-	categoriesCmd.MarkFlagRequired("room")
+	categoriesCmd.Flags().IntVarP(&categoriesCmdRoom, "room", "r", 0, "room number")
 }

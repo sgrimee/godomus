@@ -98,7 +98,7 @@ type Category struct {
 	CatClsId     CategoryClassId `json:"category_clsid"`
 	Label        string          `json:"label"`
 	PictureKey   string          `json:"picture_key"`
-	DevicesCount string          `json:"devices_count"`
+	DevicesCount int             `json:"devices_count,string"`
 }
 
 // NewSiteKey returns a SiteKey from a site number as integer

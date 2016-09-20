@@ -39,14 +39,14 @@ func initConfig() {
 	}
 
 	viper.SetConfigName(".ldclient") // name of config file (without extension)
-	viper.AddConfigPath("$HOME")
 	viper.AddConfigPath(".")
+	viper.AddConfigPath("$HOME")
 
 	// If a config file is found, read it in.
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Println("Using config file:", viper.ConfigFileUsed())
 	}
-	//fmt.Println("Config:")
+	//fmt.Println("Config contents:")
 	//spew.Dump(viper.AllSettings())
 
 	testSiteKey = NewSiteKey(viper.GetInt("site"))
@@ -83,6 +83,7 @@ func TestNew(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Could not create domus object: %s", err)
 	}
+	d.Debug = testing.Verbose()
 	if d.socketAddr != testSocketAddr {
 		t.Fatalf("Incorrect socket url: %s", d.socketAddr)
 	}
@@ -163,8 +164,8 @@ func TestListenForEvents(t *testing.T) {
 	}
 }
 
-func TestCategories(t *testing.T) {
-	categories, err := domus.GetCategories(testRoomKey)
+func TestCategoriesInRoom(t *testing.T) {
+	categories, err := domus.CategoriesInRoom(testRoomKey)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -174,7 +175,7 @@ func TestCategories(t *testing.T) {
 	t.Logf("Categories:\n%+v\n", categories)
 }
 
-func testExecuteAction(t *testing.T) {
+func TestExecuteAction(t *testing.T) {
 	err := domus.ExecuteAction(testAction, testProperty, testDeviceKey)
 	if err != nil {
 		t.Fatal(err)

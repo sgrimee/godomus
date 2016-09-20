@@ -198,8 +198,8 @@ func (d *Domus) DevicesInRoom(rk RoomKey, class CategoryClassId) (Devices, error
 	return Devices(body.Devices), nil
 }
 
-// GetCategories returns the list of categories in the given roomId
-func (d *Domus) GetCategories(rk RoomKey) (Categories, error) {
+// CategoriesInRoom returns the list of categories in the given roomId
+func (d *Domus) CategoriesInRoom(rk RoomKey) (Categories, error) {
 	queries := map[string]string{
 		"room_key": string(rk),
 	}

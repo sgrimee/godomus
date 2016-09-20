@@ -7,21 +7,21 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var room int
+var devicesCmdRoom int
 
 // devicesCmd represents the devices command
 var devicesCmd = &cobra.Command{
 	Use:   "devices",
-	Short: "Get devices in one or all rooms (slow)",
-	Long:  `Get list of devices in the given room (or all rooms)`,
+	Short: "Get devices",
+	Long:  `Get list of devices in the given room, or all rooms (slow))`,
 	Run: func(cmd *cobra.Command, args []string) {
 		var (
 			roomKeys []godomus.RoomKey
 			devices  godomus.Devices
 		)
 		// only one room if specified, otherwise all rooms
-		if room != 0 {
-			roomKeys = append(roomKeys, godomus.NewRoomKey(room))
+		if devicesCmdRoom != 0 {
+			roomKeys = append(roomKeys, godomus.NewRoomKey(devicesCmdRoom))
 			domusLogin()
 		} else {
 			rooms := godomus.RoomsFromInfos(domusInfos())
@@ -49,5 +49,5 @@ var devicesCmd = &cobra.Command{
 
 func init() {
 	getCmd.AddCommand(devicesCmd)
-	devicesCmd.Flags().IntVarP(&room, "room", "r", 0, "Only devices in room number")
+	devicesCmd.Flags().IntVarP(&devicesCmdRoom, "room", "r", 0, "room number")
 }
