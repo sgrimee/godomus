@@ -181,3 +181,13 @@ func TestExecuteAction(t *testing.T) {
 		t.Fatal(err)
 	}
 }
+
+func TestGetDeviceState(t *testing.T) {
+	dev, err := domus.GetDeviceState(testDeviceKey)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if dev.CatClsId == "" {
+		t.Fatal("Device category is empty")
+	}
+}

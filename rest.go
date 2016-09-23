@@ -231,3 +231,20 @@ func (d *Domus) ExecuteAction(action ActionClassId, property PropClassId, dk Dev
 	defer resp.Body.Close()
 	return nil
 }
+
+// GetDeviceState returns all infos on one device
+func (d *Domus) GetDeviceState(dk DeviceKey) (*Device, error) {
+	queries := map[string]string{
+		"device_key":   string(dk),
+	}
+	resp, err := d.GetWithSession("/Mobile/GetDeviceState", queries)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+	var body Device
+	if err := json.NewDecoder(resp.Body).Decode(&body); err != nil {
+		return nil, err
+	}
+	return &body, nil 
+}
