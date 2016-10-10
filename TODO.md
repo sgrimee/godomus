@@ -3,8 +3,8 @@
 - set device state (/ExecuteAction ?)
 - check /GetDeviceState
 - check /GetDevicesFromCatg
-- move output.go to the godomus lib
 - implement groups? /GetGroup, /GetGroups
+- add StopListeningForEvents
 
 ## Client
 - filter get devices by category
@@ -12,3 +12,5 @@
 - flag to show actions of devices
 - room detection from text arguments
 - device id detection from text arguments
+- move most of the motor.go logic into the lib (similar to switch.go)
+- move output.go to the godomus lib

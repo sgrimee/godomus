@@ -110,14 +110,6 @@ func TestGetUsers(t *testing.T) {
 	}
 }
 
-func TestSessionRefresh(t *testing.T) {
-	domus.sessionKey = "bogus"
-	_, err := domus.DevicesInRoom(testRoomKey, "")
-	if err != nil {
-		t.Fatal(err)
-	}
-}
-
 func TestLoginInfos(t *testing.T) {
 	infos, err := domus.LoginInfos(testSiteKey, testUserKey, testPassword)
 	if err != nil {
@@ -145,6 +137,14 @@ func TestLogin(t *testing.T) {
 	}
 }
 
+func TestSessionRefresh(t *testing.T) {
+	domus.sessionKey = "bogus"
+	_, err := domus.DevicesInRoom(testRoomKey, "")
+	if err != nil {
+		t.Fatal(err)
+	}
+}
+
 func TestDevicesInRoom(t *testing.T) {
 	devices, err := domus.DevicesInRoom(testRoomKey, "")
 	if err != nil {
@@ -157,9 +157,15 @@ func TestDevicesInRoom(t *testing.T) {
 }
 
 func TestListenForEvents(t *testing.T) {
-	t.Skip("skipping listening test")
-	err := domus.ListenForEvents(10)
-	if err != nil {
+	t.Skip("skipping event listening test in short mode.")
+	events := make(chan EventMsg, 1)
+	errs := make(chan error, 1)
+	go domus.ListenForEvents(events, errs)
+	fmt.Println("Waiting for an event.")
+	select {
+	case ev := <-events:
+		t.Logf("Event received: %+v", ev)
+	case err := <-errs:
 		t.Fatal(err)
 	}
 }

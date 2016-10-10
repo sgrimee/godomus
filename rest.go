@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"net/url"
 )
@@ -61,7 +62,12 @@ func (d *Domus) GetWithSession(resource string, queries map[string]string) (*htt
 		e := jsonError(resp)
 		if e.Error() == "INVALID_SESSION" {
 			// make a second attempt after logging in again to refresh sessionKey
-			d.Login(d.siteKey, d.userKey, d.password)
+			log.Println("Refreshing session")
+			key, err := d.Login(d.siteKey, d.userKey, d.password)
+			if err != nil {
+				return nil, err
+			}
+			q["session_key"] = string(key)
 			resp, err = d.Get(resource, q)
 		} else {
 			return nil, e
@@ -121,7 +127,7 @@ func (d *Domus) GetUsers(site SiteKey) (Users, error) {
 }
 
 // Login saves and returns the session key for a user
-// The site, user and session keys are saved for later use by other methods
+// The site, user, password and session keys are saved for later use by other methods
 func (d *Domus) Login(sk SiteKey, uk UserKey, password string) (SessionKey, error) {
 	resp, err := d.Get("/Mobile/Login", map[string]string{
 		"site_key": string(sk),
@@ -144,35 +150,40 @@ func (d *Domus) Login(sk SiteKey, uk UserKey, password string) (SessionKey, erro
 		return "", fmt.Errorf("Login: session key should be 40 bytes, is %d: %s", n, body)
 	}
 	d.sessionKey = SessionKey(body[:sessionKeyLen])
+	if d.Debug {
+		fmt.Printf("sessionKey: %s\n", d.sessionKey)
+	}
 	d.siteKey = sk
 	d.userKey = uk
+	d.password = password
 	return d.sessionKey, nil
 }
 
 // LoginInfos returns a struct with a session key and additional infos
-// The site, user and session keys are saved for later use by other methods
-func (d *Domus) LoginInfos(sk SiteKey, uk UserKey, password string) (*LoginInfos, error) {
+// The site, user, password and session keys are saved for later use by other methods
+func (d *Domus) LoginInfos(sk SiteKey, uk UserKey, password string) (LoginInfos, error) {
+	var infos LoginInfos
 	resp, err := d.Get("/Mobile/LoginInfos", map[string]string{
 		"site_key": string(sk),
 		"user_key": string(uk),
 		"password": password,
 	})
 	if err != nil {
-		return nil, err
+		return infos, err
 	}
 	defer resp.Body.Close()
 	if resp.StatusCode == 204 {
-		return nil, errors.New("LoginInfos: invalid credentials")
+		return infos, errors.New("LoginInfos: invalid credentials")
 	}
-	var infos LoginInfos
 
 	if err := json.NewDecoder(resp.Body).Decode(&infos); err != nil {
-		return nil, err
+		return infos, err
 	}
+	d.sessionKey = infos.SessionKey
 	d.siteKey = sk
 	d.userKey = uk
-	d.sessionKey = infos.SessionKey
-	return &infos, nil
+	d.password = password
+	return infos, nil
 }
 
 // DevicesInRoom returns the list of devices in the given roomId
@@ -233,18 +244,19 @@ func (d *Domus) ExecuteAction(action ActionClassId, property PropClassId, dk Dev
 }
 
 // GetDeviceState returns all infos on one device
-func (d *Domus) GetDeviceState(dk DeviceKey) (*Device, error) {
+func (d *Domus) GetDeviceState(dk DeviceKey) (Device, error) {
+	var dev Device
 	queries := map[string]string{
-		"device_key":   string(dk),
+		"device_key": string(dk),
 	}
 	resp, err := d.GetWithSession("/Mobile/GetDeviceState", queries)
 	if err != nil {
-		return nil, err
+		return dev, err
 	}
 	defer resp.Body.Close()
-	var body Device
-	if err := json.NewDecoder(resp.Body).Decode(&body); err != nil {
-		return nil, err
+
+	if err := json.NewDecoder(resp.Body).Decode(&dev); err != nil {
+		return dev, err
 	}
-	return &body, nil 
+	return dev, nil
 }

@@ -3,7 +3,7 @@ GO client library for the Lifedomus home automation server
 
 ## Applications
 - [ldclient - CLI utility](https://github.com/sgrimee/godomus/tree/master/ldclient)
-- Soon: [ldkh - HomeKit bridge](https://github.com/sgrimee/godomus/tree/master/ldhk)
+- Soon: [hkdomus - HomeKit bridge](https://github.com/sgrimee/hkdomus)
 
 ## Features
 - Login

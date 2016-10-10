@@ -8,6 +8,17 @@ import (
 
 const sessionKeyLen = 40
 
+type ActionClassId string
+
+const ActionClassIdOn = ActionClassId("CLSID-ACTION-ON")
+const ActionClassIdOff = ActionClassId("CLSID-ACTION-OFF")
+const ActionClassIdToggle = ActionClassId("CLSID-ACTION-TOGGLE")
+
+type PropClassId string
+
+const PropClassIdBinarySwitch = PropClassId("CLSID-DEVC-PROP-TOR-SW")
+const PropClassIdDimmerSwitch = PropClassId("CLSID-DEVC-PROP-DIMMER-SW")
+
 type SessionKey string
 
 type SiteKey string
@@ -25,8 +36,6 @@ type Categories []Category
 
 type DeviceClassId string
 type CategoryClassId string
-type ActionClassId string
-type PropClassId string
 type StateClassId string
 
 type Site struct {
@@ -178,7 +187,7 @@ func (dk DeviceKey) Num() int {
 
 // RoomsFromInfos extracts rooms from an info object
 // This only keeps rooms with a valid RoomKey, removing GROUPS, CAMERAS, etc
-func RoomsFromInfos(infos *LoginInfos) Rooms {
+func RoomsFromInfos(infos LoginInfos) Rooms {
 	var filtered Rooms
 	for _, r := range infos.Rooms.Room {
 		if strings.HasPrefix(string(r.Key), "ROOM_") {
@@ -189,6 +198,6 @@ func RoomsFromInfos(infos *LoginInfos) Rooms {
 }
 
 // ScenariosFromInfos extracts scenarions from an info object
-func ScenariosFromInfos(infos *LoginInfos) Scenarios {
+func ScenariosFromInfos(infos LoginInfos) Scenarios {
 	return Scenarios(infos.Scenarios.Scenario)
 }

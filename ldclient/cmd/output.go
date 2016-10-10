@@ -65,8 +65,8 @@ func printText(obj interface{}) {
 		for _, e := range obj.(godomus.Devices) {
 			fmt.Printf("| %5d | %18s | %5d | %s\n", e.RoomKey.Num(), e.RoomLabel, e.Key.Num(), e.Label)
 		}
-	case *godomus.Device:
-		e := obj.(*godomus.Device)
+	case godomus.Device:
+		e := obj.(godomus.Device)
 		fmt.Printf("| %18s | %5d | %s\n", e.RoomLabel, e.Key.Num(), e.Label)
 	case godomus.Categories:
 		for _, e := range obj.(godomus.Categories) {
