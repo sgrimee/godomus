@@ -258,5 +258,6 @@ func (d *Domus) GetDeviceState(dk DeviceKey) (Device, error) {
 	if err := json.NewDecoder(resp.Body).Decode(&dev); err != nil {
 		return dev, err
 	}
+	dev.server = d
 	return dev, nil
 }
