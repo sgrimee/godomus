@@ -229,9 +229,9 @@ func (d *Domus) CategoriesInRoom(rk RoomKey) (Categories, error) {
 }
 
 // ExecuteAction runs the action on property of device
-func (d *Domus) ExecuteAction(action ActionClassId, property PropClassId, dk DeviceKey) error {
+func (d *Domus) ExecuteAction(action ActionClassId, property PropClassId, tk TargetKey) error {
 	queries := map[string]string{
-		"target_key":   string(dk),
+		"target_key":   string(tk),
 		"prop_clsid":   string(property),
 		"action_clsid": string(action),
 	}

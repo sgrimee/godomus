@@ -9,17 +9,15 @@ import (
 const sessionKeyLen = 40
 
 type SessionKey string
-
+type TargetKey string
 type SiteKey string
 type UserKey string
 type RoomKey string
-type ScenarioKey string
 
 type Sites []Site
 type Users []User
 type Rooms []Room
 type Devices []Device
-type Scenarios []Scenario
 type Categories []Category
 
 type CategoryClassId string
@@ -41,12 +39,6 @@ type Room struct {
 	Key        RoomKey `json:"room_key"`
 	Label      string  `json:"label"`
 	PictureKey string  `json:"picture_key"`
-}
-
-type Scenario struct {
-	Key    ScenarioKey `json:"scenario_key"`
-	Label  string      `json:"label"`
-	Resume string      `json:"resume"`
 }
 
 type Value struct {
@@ -111,21 +103,6 @@ func NewRoomKey(num int) RoomKey {
 // (RoomKey) Num returns the room number as integer
 func (uk RoomKey) Num() int {
 	ns := strings.TrimPrefix(string(uk), "ROOM_")
-	num, err := strconv.Atoi(ns)
-	if err != nil {
-		panic(err)
-	}
-	return num
-}
-
-// NewScenarioKey returns a Scenario from a scenario number as integer
-func NewScenarioKey(num int) ScenarioKey {
-	return ScenarioKey(fmt.Sprintf("SCNR_%035d", num))
-}
-
-// (ScenarioKey) Num returns the scenario number as integer
-func (uk ScenarioKey) Num() int {
-	ns := strings.TrimPrefix(string(uk), "SCNR_")
 	num, err := strconv.Atoi(ns)
 	if err != nil {
 		panic(err)

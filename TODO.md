@@ -1,9 +1,5 @@
 ## Lib
-- launch scenarios (/ExecuteAction ?)
-- check /GetDeviceState
-- check /GetDevicesFromCatg
-- implement groups? /GetGroup, /GetGroups
-- add StopListeningForEvents
+- implement /GetGroup, /GetGroups
 
 ## Client
 - filter get devices by category
@@ -12,3 +8,8 @@
 - room detection from text arguments
 - device id detection from text arguments
 - move output.go to the godomus lib
+
+## Maybe
+- add StopListeningForEvents
+- check /GetDeviceState
+- check /GetDevicesFromCatg

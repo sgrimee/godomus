@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-type DeviceKey string
+type DeviceKey TargetKey
 type DeviceClassId string
 type ActionClassId string
 type PropClassId string
@@ -74,7 +74,7 @@ func (dev Device) switchAction(action ActionClassId) error {
 		switch property {
 		case PropClassIdBinarySwitch,
 			PropClassIdDimmerSwitch:
-			return dev.server.ExecuteAction(action, property, dev.Key)
+			return dev.server.ExecuteAction(action, property, TargetKey(dev.Key))
 		}
 	}
 	return errors.New("Invalid property class id")
@@ -102,7 +102,7 @@ func (dev Device) motorAction(action ActionClassId) error {
 		property := devAction.PropClsId
 		switch property {
 		case PropClassIdMotorUpDown:
-			return dev.server.ExecuteAction(action, property, dev.Key)
+			return dev.server.ExecuteAction(action, property, TargetKey(dev.Key))
 		}
 	}
 	return errors.New("Invalid property class id")

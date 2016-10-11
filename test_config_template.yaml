@@ -10,3 +10,4 @@ test_socket_address: server.public.ip:51023
 test_device: 264
 test_property: CLSID-DEVC-PROP-TOR-SW
 test_action: CLSID-ACTION-ON
+test_scenario: 3491

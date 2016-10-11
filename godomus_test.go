@@ -14,17 +14,18 @@ var (
 
 // TODO: get this test data from config file
 var (
-	cfgFile        string
-	testSiteKey    SiteKey
-	testUserKey    UserKey
-	testPassword   string
-	testApiUrl     string
-	testSocketPort int
-	testSocketAddr string
-	testRoomKey    RoomKey
-	testDeviceKey  DeviceKey
-	testProperty   PropClassId
-	testAction     ActionClassId
+	cfgFile         string
+	testSiteKey     SiteKey
+	testUserKey     UserKey
+	testPassword    string
+	testApiUrl      string
+	testSocketPort  int
+	testSocketAddr  string
+	testRoomKey     RoomKey
+	testDeviceKey   DeviceKey
+	testProperty    PropClassId
+	testAction      ActionClassId
+	testScenarioKey ScenarioKey
 )
 
 func TestMain(m *testing.M) {
@@ -59,6 +60,7 @@ func initConfig() {
 	testDeviceKey = NewDeviceKey(viper.GetInt("test_device"))
 	testProperty = PropClassId(viper.GetString("test_property"))
 	testAction = ActionClassId(viper.GetString("test_action"))
+	testScenarioKey = NewScenarioKey(viper.GetInt("test_scenario"))
 }
 
 func TestKeyConversions(t *testing.T) {
@@ -182,7 +184,7 @@ func TestCategoriesInRoom(t *testing.T) {
 }
 
 func TestExecuteAction(t *testing.T) {
-	err := domus.ExecuteAction(testAction, testProperty, testDeviceKey)
+	err := domus.ExecuteAction(testAction, testProperty, TargetKey(testDeviceKey))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -195,5 +197,12 @@ func TestGetDeviceState(t *testing.T) {
 	}
 	if dev.CatClsId == "" {
 		t.Fatal("Device category is empty")
+	}
+}
+
+func TestRunScenario(t *testing.T) {
+	err := domus.RunScenario(testScenarioKey)
+	if err != nil {
+		t.Fatal(err)
 	}
 }
