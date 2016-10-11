@@ -147,6 +147,17 @@ func TestSessionRefresh(t *testing.T) {
 	}
 }
 
+func TestGetGroups(t *testing.T) {
+	groups, err := domus.GetGroups()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(groups) <= 0 {
+		t.Fatal("No groups received.")
+	}
+	t.Logf("Groups:\n%+v\n", groups)
+}
+
 func TestDevicesInRoom(t *testing.T) {
 	devices, err := domus.DevicesInRoom(testRoomKey, "")
 	if err != nil {

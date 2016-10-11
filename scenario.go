@@ -21,6 +21,11 @@ func (d *Domus) RunScenario(sk ScenarioKey) error {
 	return d.ExecuteAction(ActionClassIdRun, PropClassId("0"), TargetKey(sk))
 }
 
+// ScenariosFromInfos extracts scenarions from an info object
+func ScenariosFromInfos(infos LoginInfos) Scenarios {
+	return Scenarios(infos.Scenarios.Scenario)
+}
+
 // NewScenarioKey returns a Scenario from a scenario number as integer
 func NewScenarioKey(num int) ScenarioKey {
 	return ScenarioKey(fmt.Sprintf("SCNR_%035d", num))

@@ -6,6 +6,10 @@ import (
 	"strings"
 )
 
+const sessionKeyLen = 40
+
+type SessionKey string
+
 type Domus struct {
 	siteKey    SiteKey
 	userKey    UserKey
@@ -14,6 +18,15 @@ type Domus struct {
 	socketAddr string
 	sessionKey SessionKey
 	Debug      bool
+}
+
+type LoginInfos struct {
+	SessionKey SessionKey                    `json:"session_key"`
+	Rooms      struct{ Room []Room }         `json:"rooms"`
+	Scenarios  struct{ Scenario []Scenario } `json:"scenarios"`
+	//Devices    struct{ Device []Device }     `json:"devices"`
+	// Bookmarks  interface{}                   `json:"bookmarks"`
+	// Groups     interface{}                   `json:"groups"`
 }
 
 // New returns a new Domus object

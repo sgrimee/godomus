@@ -11,6 +11,8 @@ import (
 	"net/url"
 )
 
+type TargetKey string
+
 // Get makes a GET call to resource after encoding params given in queries
 // If no error, it returns an unclosed http.Response
 func (d *Domus) Get(resource string, queries map[string]string) (*http.Response, error) {
@@ -260,4 +262,23 @@ func (d *Domus) GetDeviceState(dk DeviceKey) (Device, error) {
 	}
 	dev.server = d
 	return dev, nil
+}
+
+// GetGroups returns all groups
+func (d *Domus) GetGroups() (Groups, error) {
+	queries := map[string]string{}
+	resp, err := d.GetWithSession("/Mobile/GetGroups", queries)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	var body struct {
+		Groups []Group `json:"group"`
+	}
+
+	if err := json.NewDecoder(resp.Body).Decode(&body); err != nil {
+		return nil, err
+	}
+	return Groups(body.Groups), nil
 }

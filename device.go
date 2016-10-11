@@ -7,10 +7,21 @@ import (
 	"strings"
 )
 
+const ActionClassIdOn = ActionClassId("CLSID-ACTION-ON")
+const ActionClassIdOff = ActionClassId("CLSID-ACTION-OFF")
+const ActionClassIdUp = ActionClassId("CLSID-ACTION-UP")
+const ActionClassIdDown = ActionClassId("CLSID-ACTION-DOWN")
+const ActionClassIdToggle = ActionClassId("CLSID-ACTION-TOGGLE")
+const PropClassIdBinarySwitch = PropClassId("CLSID-DEVC-PROP-TOR-SW")
+const PropClassIdDimmerSwitch = PropClassId("CLSID-DEVC-PROP-DIMMER-SW")
+const PropClassIdMotorUpDown = PropClassId("CLSID-DEVC-PROP-MOTOR-UD")
+
 type DeviceKey TargetKey
+type Devices []Device
 type DeviceClassId string
 type ActionClassId string
 type PropClassId string
+type StateClassId string
 
 type State struct {
 	ClsId  StateClassId            `json:"state_clsid"`
@@ -37,14 +48,13 @@ type Device struct {
 	server    *Domus
 }
 
-const ActionClassIdOn = ActionClassId("CLSID-ACTION-ON")
-const ActionClassIdOff = ActionClassId("CLSID-ACTION-OFF")
-const ActionClassIdUp = ActionClassId("CLSID-ACTION-UP")
-const ActionClassIdDown = ActionClassId("CLSID-ACTION-DOWN")
-const ActionClassIdToggle = ActionClassId("CLSID-ACTION-TOGGLE")
-const PropClassIdBinarySwitch = PropClassId("CLSID-DEVC-PROP-TOR-SW")
-const PropClassIdDimmerSwitch = PropClassId("CLSID-DEVC-PROP-DIMMER-SW")
-const PropClassIdMotorUpDown = PropClassId("CLSID-DEVC-PROP-MOTOR-UD")
+type Value struct {
+	Index       string `json:"index"`
+	Value       string `json:"value"`
+	Description string `json:"description"`
+	Unit        string `json:"unit"`
+	Label       string `json:"label"`
+}
 
 func (dev Device) On() error {
 	return dev.switchAction(ActionClassIdOn)

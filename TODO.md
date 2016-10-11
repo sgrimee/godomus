@@ -1,5 +1,5 @@
 ## Lib
-- implement /GetGroup, /GetGroups
+- implement /GetGroup
 
 ## Client
 - filter get devices by category
@@ -8,6 +8,9 @@
 - room detection from text arguments
 - device id detection from text arguments
 - move output.go to the godomus lib
+- add continuous listening for events
+- get groups
+- get group
 
 ## Maybe
 - add StopListeningForEvents
