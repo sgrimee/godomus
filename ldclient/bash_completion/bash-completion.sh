@@ -223,6 +223,103 @@ __handle_word()
     __handle_word
 }
 
+_ldclient_down()
+{
+    last_command="ldclient_down"
+    commands=()
+
+    flags=()
+    two_word_flags=()
+    local_nonpersistent_flags=()
+    flags_with_completion=()
+    flags_completion=()
+
+    flags+=("--config=")
+    flags+=("--debug")
+    flags+=("-d")
+    flags+=("--password=")
+    two_word_flags+=("-p")
+    flags+=("--site=")
+    two_word_flags+=("-s")
+    flags+=("--socketPort=")
+    two_word_flags+=("-k")
+    flags+=("--user=")
+    two_word_flags+=("-u")
+    flags+=("--ws=")
+    two_word_flags+=("-w")
+
+    must_have_one_flag=()
+    must_have_one_noun=()
+    noun_aliases=()
+}
+
+_ldclient_get_categories()
+{
+    last_command="ldclient_get_categories"
+    commands=()
+
+    flags=()
+    two_word_flags=()
+    local_nonpersistent_flags=()
+    flags_with_completion=()
+    flags_completion=()
+
+    flags+=("--room=")
+    two_word_flags+=("-r")
+    local_nonpersistent_flags+=("--room=")
+    flags+=("--config=")
+    flags+=("--debug")
+    flags+=("-d")
+    flags+=("--output=")
+    two_word_flags+=("-o")
+    flags+=("--password=")
+    two_word_flags+=("-p")
+    flags+=("--site=")
+    two_word_flags+=("-s")
+    flags+=("--socketPort=")
+    two_word_flags+=("-k")
+    flags+=("--user=")
+    two_word_flags+=("-u")
+    flags+=("--ws=")
+    two_word_flags+=("-w")
+
+    must_have_one_flag=()
+    must_have_one_noun=()
+    noun_aliases=()
+}
+
+_ldclient_get_device()
+{
+    last_command="ldclient_get_device"
+    commands=()
+
+    flags=()
+    two_word_flags=()
+    local_nonpersistent_flags=()
+    flags_with_completion=()
+    flags_completion=()
+
+    flags+=("--config=")
+    flags+=("--debug")
+    flags+=("-d")
+    flags+=("--output=")
+    two_word_flags+=("-o")
+    flags+=("--password=")
+    two_word_flags+=("-p")
+    flags+=("--site=")
+    two_word_flags+=("-s")
+    flags+=("--socketPort=")
+    two_word_flags+=("-k")
+    flags+=("--user=")
+    two_word_flags+=("-u")
+    flags+=("--ws=")
+    two_word_flags+=("-w")
+
+    must_have_one_flag=()
+    must_have_one_noun=()
+    noun_aliases=()
+}
+
 _ldclient_get_devices()
 {
     last_command="ldclient_get_devices"
@@ -254,8 +351,70 @@ _ldclient_get_devices()
     two_word_flags+=("-w")
 
     must_have_one_flag=()
-    must_have_one_flag+=("--room=")
-    must_have_one_flag+=("-r")
+    must_have_one_noun=()
+    noun_aliases=()
+}
+
+_ldclient_get_group()
+{
+    last_command="ldclient_get_group"
+    commands=()
+
+    flags=()
+    two_word_flags=()
+    local_nonpersistent_flags=()
+    flags_with_completion=()
+    flags_completion=()
+
+    flags+=("--config=")
+    flags+=("--debug")
+    flags+=("-d")
+    flags+=("--output=")
+    two_word_flags+=("-o")
+    flags+=("--password=")
+    two_word_flags+=("-p")
+    flags+=("--site=")
+    two_word_flags+=("-s")
+    flags+=("--socketPort=")
+    two_word_flags+=("-k")
+    flags+=("--user=")
+    two_word_flags+=("-u")
+    flags+=("--ws=")
+    two_word_flags+=("-w")
+
+    must_have_one_flag=()
+    must_have_one_noun=()
+    noun_aliases=()
+}
+
+_ldclient_get_groups()
+{
+    last_command="ldclient_get_groups"
+    commands=()
+
+    flags=()
+    two_word_flags=()
+    local_nonpersistent_flags=()
+    flags_with_completion=()
+    flags_completion=()
+
+    flags+=("--config=")
+    flags+=("--debug")
+    flags+=("-d")
+    flags+=("--output=")
+    two_word_flags+=("-o")
+    flags+=("--password=")
+    two_word_flags+=("-p")
+    flags+=("--site=")
+    two_word_flags+=("-s")
+    flags+=("--socketPort=")
+    two_word_flags+=("-k")
+    flags+=("--user=")
+    two_word_flags+=("-u")
+    flags+=("--ws=")
+    two_word_flags+=("-w")
+
+    must_have_one_flag=()
     must_have_one_noun=()
     noun_aliases=()
 }
@@ -392,7 +551,11 @@ _ldclient_get()
 {
     last_command="ldclient_get"
     commands=()
+    commands+=("categories")
+    commands+=("device")
     commands+=("devices")
+    commands+=("group")
+    commands+=("groups")
     commands+=("rooms")
     commands+=("scenarios")
     commands+=("sites")
@@ -425,9 +588,159 @@ _ldclient_get()
     noun_aliases=()
 }
 
-_ldclient_turn()
+_ldclient_listen()
 {
-    last_command="ldclient_turn"
+    last_command="ldclient_listen"
+    commands=()
+
+    flags=()
+    two_word_flags=()
+    local_nonpersistent_flags=()
+    flags_with_completion=()
+    flags_completion=()
+
+    flags+=("--config=")
+    flags+=("--debug")
+    flags+=("-d")
+    flags+=("--password=")
+    two_word_flags+=("-p")
+    flags+=("--site=")
+    two_word_flags+=("-s")
+    flags+=("--socketPort=")
+    two_word_flags+=("-k")
+    flags+=("--user=")
+    two_word_flags+=("-u")
+    flags+=("--ws=")
+    two_word_flags+=("-w")
+
+    must_have_one_flag=()
+    must_have_one_noun=()
+    noun_aliases=()
+}
+
+_ldclient_off()
+{
+    last_command="ldclient_off"
+    commands=()
+
+    flags=()
+    two_word_flags=()
+    local_nonpersistent_flags=()
+    flags_with_completion=()
+    flags_completion=()
+
+    flags+=("--config=")
+    flags+=("--debug")
+    flags+=("-d")
+    flags+=("--password=")
+    two_word_flags+=("-p")
+    flags+=("--site=")
+    two_word_flags+=("-s")
+    flags+=("--socketPort=")
+    two_word_flags+=("-k")
+    flags+=("--user=")
+    two_word_flags+=("-u")
+    flags+=("--ws=")
+    two_word_flags+=("-w")
+
+    must_have_one_flag=()
+    must_have_one_noun=()
+    noun_aliases=()
+}
+
+_ldclient_on()
+{
+    last_command="ldclient_on"
+    commands=()
+
+    flags=()
+    two_word_flags=()
+    local_nonpersistent_flags=()
+    flags_with_completion=()
+    flags_completion=()
+
+    flags+=("--config=")
+    flags+=("--debug")
+    flags+=("-d")
+    flags+=("--password=")
+    two_word_flags+=("-p")
+    flags+=("--site=")
+    two_word_flags+=("-s")
+    flags+=("--socketPort=")
+    two_word_flags+=("-k")
+    flags+=("--user=")
+    two_word_flags+=("-u")
+    flags+=("--ws=")
+    two_word_flags+=("-w")
+
+    must_have_one_flag=()
+    must_have_one_noun=()
+    noun_aliases=()
+}
+
+_ldclient_scenario()
+{
+    last_command="ldclient_scenario"
+    commands=()
+
+    flags=()
+    two_word_flags=()
+    local_nonpersistent_flags=()
+    flags_with_completion=()
+    flags_completion=()
+
+    flags+=("--config=")
+    flags+=("--debug")
+    flags+=("-d")
+    flags+=("--password=")
+    two_word_flags+=("-p")
+    flags+=("--site=")
+    two_word_flags+=("-s")
+    flags+=("--socketPort=")
+    two_word_flags+=("-k")
+    flags+=("--user=")
+    two_word_flags+=("-u")
+    flags+=("--ws=")
+    two_word_flags+=("-w")
+
+    must_have_one_flag=()
+    must_have_one_noun=()
+    noun_aliases=()
+}
+
+_ldclient_toggle()
+{
+    last_command="ldclient_toggle"
+    commands=()
+
+    flags=()
+    two_word_flags=()
+    local_nonpersistent_flags=()
+    flags_with_completion=()
+    flags_completion=()
+
+    flags+=("--config=")
+    flags+=("--debug")
+    flags+=("-d")
+    flags+=("--password=")
+    two_word_flags+=("-p")
+    flags+=("--site=")
+    two_word_flags+=("-s")
+    flags+=("--socketPort=")
+    two_word_flags+=("-k")
+    flags+=("--user=")
+    two_word_flags+=("-u")
+    flags+=("--ws=")
+    two_word_flags+=("-w")
+
+    must_have_one_flag=()
+    must_have_one_noun=()
+    noun_aliases=()
+}
+
+_ldclient_up()
+{
+    last_command="ldclient_up"
     commands=()
 
     flags=()
@@ -489,8 +802,14 @@ _ldclient()
 {
     last_command="ldclient"
     commands=()
+    commands+=("down")
     commands+=("get")
-    commands+=("turn")
+    commands+=("listen")
+    commands+=("off")
+    commands+=("on")
+    commands+=("scenario")
+    commands+=("toggle")
+    commands+=("up")
     commands+=("version")
 
     flags=()

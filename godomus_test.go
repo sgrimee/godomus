@@ -170,7 +170,7 @@ func TestDevicesInRoom(t *testing.T) {
 }
 
 func TestListenForEvents(t *testing.T) {
-	t.Skip("skipping event listening test in short mode.")
+	t.Skip("skipping event listening test, too slow")
 	events := make(chan EventMsg, 1)
 	errs := make(chan error, 1)
 	go domus.ListenForEvents(events, errs)
