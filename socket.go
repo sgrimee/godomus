@@ -9,9 +9,19 @@ import (
 	"strings"
 )
 
+type EventClassId string
+
 type EventResult struct {
 	Message string
 	Error   error
+}
+
+type EventMsg struct {
+	XMLName   xml.Name
+	ClsId     EventClassId `xml:"clsid,attr"`
+	DeviceKey DeviceKey    `xml:"device_key,attr"`
+	Raw       string
+	Error     error
 }
 
 // ListenForEvents gets device update events from the LD event socket
@@ -54,14 +64,6 @@ func (d *Domus) ListenForEvents(events chan<- EventMsg, errs chan<- error) {
 	}
 }
 
-type EventMsg struct {
-	XMLName   xml.Name
-	ClsId     string `xml:"clsid,attr"`
-	DeviceKey string `xml:"device_key,attr"`
-	Raw       string
-	Error     error
-}
-
 func ParseMsg(msg []byte) (EventMsg, error) {
 	em := EventMsg{}
 	em.Raw = string(msg)
@@ -71,12 +73,15 @@ func ParseMsg(msg []byte) (EventMsg, error) {
 
 // IsDeviceUpdate returns true only if the event is a device state update
 func IsDeviceUpdate(e EventMsg) bool {
-	if strings.Contains(e.ClsId, "-CONSO") {
+	if strings.Contains(string(e.ClsId), "-CONSO") {
 		return false
 	}
-	if e.DeviceKey != "" {
-		return true
+	if !strings.Contains(string(e.ClsId), "-STATE-") {
+		return false
 	}
+	if e.DeviceKey == "" {
+		return false
+	}
+	return true
 	//fmt.Printf("  Ignoring clsid: %s\n", e.ClsId)
-	return false
 }
