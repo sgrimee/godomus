@@ -42,6 +42,7 @@ curl http://10.0.1.6:8080/DomoBox/rs/Mobile/ExecuteAction?session_key=$SESSION&t
 
 curl http://10.0.1.6:8080/DomoBox/rs/Mobile/GetDeviceState?session_key=$SESSION&device_key=DEVC_00000000000000000000000000000000264" | jq
 
+curl "http://10.0.1.6:8080/DomoBox/rs/Mobile/GetGroups?session_key=$SESSION" | jq
+
 ```
 
-also: GetDevices, GetCategories

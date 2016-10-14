@@ -63,7 +63,8 @@ func printText(obj interface{}) {
 		}
 	case godomus.Devices:
 		for _, e := range obj.(godomus.Devices) {
-			fmt.Printf("| %5d | %18s | %5d | %s\n", e.RoomKey.Num(), e.RoomLabel, e.Key.Num(), e.Label)
+			fmt.Printf("| %18s | %5d | %35s | %s\n",
+				e.RoomLabel, e.Key.Num(), e.Label, e.Resume)
 		}
 	case godomus.Device:
 		e := obj.(godomus.Device)
@@ -71,6 +72,16 @@ func printText(obj interface{}) {
 	case godomus.Categories:
 		for _, e := range obj.(godomus.Categories) {
 			fmt.Printf("| %16s | %28s | %2d devices\n", e.CatClsId, e.Label, e.DevicesCount)
+		}
+	case godomus.Groups:
+		for _, e := range obj.(godomus.Groups) {
+			fmt.Printf("| %5d | %28s | %s\n", e.Key.Num(), e.Label, e.Resume)
+		}
+	case godomus.Group:
+		e := obj.(godomus.Group)
+		fmt.Printf("| %5d | %18s | %s\n", e.Key.Num(), e.Label, e.Resume)
+		for _, d := range e.DevicesGroups.DevicesGroup {
+			fmt.Printf("    %25s: %5d - %s\n", d.RoomLabel, d.Key.Num(), d.Label)
 		}
 	}
 }

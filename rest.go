@@ -282,3 +282,21 @@ func (d *Domus) GetGroups() (Groups, error) {
 	}
 	return Groups(body.Groups), nil
 }
+
+// GetGroup returns a single group
+func (d *Domus) GetGroup(gk GroupKey) (Group, error) {
+	var group Group
+	queries := map[string]string{
+		"group_key": string(gk),
+	}
+	resp, err := d.GetWithSession("/Mobile/GetGroup", queries)
+	if err != nil {
+		return group, err
+	}
+	defer resp.Body.Close()
+
+	if err := json.NewDecoder(resp.Body).Decode(&group); err != nil {
+		return group, err
+	}
+	return group, nil
+}
