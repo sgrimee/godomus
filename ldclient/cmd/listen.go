@@ -27,8 +27,9 @@ var listenCmd = &cobra.Command{
 				if err != nil {
 					log.Fatal(err)
 				}
-				fmt.Printf("%20s: %5d - %25s - %+v\n",
-					d.RoomLabel, d.Key.Num(), d.Label, d.States.State[0].Values.Value[0].Value)
+				val := d.States.State[0].Values.Value[0]
+				fmt.Printf("%20s: %5d - %25s - %s %s %s\n",
+					d.RoomLabel, d.Key.Num(), d.Label, val.Label, val.Value, val.Unit)
 			case err := <-errs:
 				log.Fatal(err)
 			}
