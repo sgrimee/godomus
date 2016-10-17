@@ -17,7 +17,7 @@ var devicesCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		var (
 			roomKeys []godomus.RoomKey
-			devices  godomus.Devices
+			devices  []godomus.Device
 		)
 		// only one room if specified, otherwise all rooms
 		if devicesCmdRoom != 0 {
@@ -39,7 +39,7 @@ var devicesCmd = &cobra.Command{
 				log.Fatalf("Could not get devices for room %d: %s\n", rk.Num(), err)
 			}
 			for i, _ := range devs {
-				devs[i].RoomKey = rk
+				devs[i].RoomKey = &rk
 			}
 			devices = append(devices, devs...)
 		}

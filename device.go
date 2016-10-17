@@ -1,59 +1,103 @@
 package godomus
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"strconv"
 	"strings"
 )
 
-const ActionClassIdOn = ActionClassId("CLSID-ACTION-ON")
-const ActionClassIdOff = ActionClassId("CLSID-ACTION-OFF")
-const ActionClassIdUp = ActionClassId("CLSID-ACTION-UP")
-const ActionClassIdDown = ActionClassId("CLSID-ACTION-DOWN")
-const ActionClassIdToggle = ActionClassId("CLSID-ACTION-TOGGLE")
 const PropClassIdBinarySwitch = PropClassId("CLSID-DEVC-PROP-TOR-SW")
 const PropClassIdDimmerSwitch = PropClassId("CLSID-DEVC-PROP-DIMMER-SW")
 const PropClassIdMotorUpDown = PropClassId("CLSID-DEVC-PROP-MOTOR-UD")
 
 type DeviceKey TargetKey
-type Devices []Device
 type DeviceClassId string
-type ActionClassId string
 type PropClassId string
-type StateClassId string
-
-type State struct {
-	ClsId  StateClassId            `json:"state_clsid"`
-	Type   string                  `json:"type"`
-	Label  string                  `json:"label"`
-	Values struct{ Value []Value } `json:"values"`
-}
-
-type Action struct {
-	PropClsId PropClassId   `json:"prop_clsid"`
-	ClsId     ActionClassId `json:"action_clsid"`
-}
 
 type Device struct {
-	Key       DeviceKey                 `json:"device_key"`
-	DevClsId  DeviceClassId             `json:"device_clsid"`
-	RoomLabel string                    `json:"room_label"`
-	CatClsId  CategoryClassId           `json:"category_clsid"`
-	Label     string                    `json:"label"`
-	Resume    string                    `json:"resume"`
-	States    struct{ State []State }   `json:"states"`
-	Actions   struct{ Action []Action } `json:"actions"`
-	RoomKey   RoomKey
+	Key       DeviceKey       `json:"device_key"`
+	DevClsId  DeviceClassId   `json:"device_clsid"`
+	RoomLabel string          `json:"room_label"`
+	CatClsId  CategoryClassId `json:"category_clsid"`
+	Label     string          `json:"label"`
+	Resume    string          `json:"resume"`
+	States    []State
+	Actions   []Action
+	RoomKey   *RoomKey
 	server    *Domus
 }
 
-type Value struct {
-	Index       string `json:"index"`
-	Value       string `json:"value"`
-	Description string `json:"description"`
-	Unit        string `json:"unit"`
-	Label       string `json:"label"`
+// GetDeviceState returns all infos on one device
+func (d *Domus) GetDeviceState(dk DeviceKey) (Device, error) {
+	var dev Device
+	queries := map[string]string{
+		"device_key": string(dk),
+	}
+	resp, err := d.GetWithSession("/Mobile/GetDeviceState", queries)
+	if err != nil {
+		return dev, err
+	}
+	defer resp.Body.Close()
+
+	if err := json.NewDecoder(resp.Body).Decode(&dev); err != nil {
+		return dev, err
+	}
+	dev.server = d
+	return dev, nil
+}
+
+// DevicesInRoom returns the list of devices in the given roomId
+// If class is "" then all devices are returned, otherwise only devices of that class
+func (d *Domus) DevicesInRoom(rk RoomKey, class CategoryClassId) ([]Device, error) {
+	queries := map[string]string{
+		"room_key": string(rk),
+	}
+	if class != "" {
+		queries["category_clsid"] = string(class)
+	}
+	resp, err := d.GetWithSession("/Mobile/GetDevices", queries)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+	var body struct {
+		Devices []Device `json:"device"`
+	}
+	if err := json.NewDecoder(resp.Body).Decode(&body); err != nil {
+		return nil, err
+	}
+	return []Device(body.Devices), nil
+}
+
+// avoid recursion in UnmarshalJSON
+type device Device
+
+// UnmarshalJSON fixes the States and Actions fields to be lists
+// It fixes Label if given as "device_label" instead of "label"
+func (dev *Device) UnmarshalJSON(data []byte) error {
+	tmp := struct {
+		device
+		DeviceLabel string `json:"device_label"`
+		States      struct {
+			State []State `json:"state"`
+		} `json:"states"`
+		Actions struct {
+			Action []Action `json:"action"`
+		} `json:"actions"`
+	}{}
+	if err := json.Unmarshal(data, &tmp); err != nil {
+		return err
+	}
+	*dev = Device(tmp.device)
+	if (tmp.device.Label == "") && (tmp.DeviceLabel != "") {
+		dev.Label = tmp.DeviceLabel
+	}
+	dev.States = tmp.States.State
+	dev.Actions = tmp.Actions.Action
+	//fmt.Printf("dev: %+v\n", dev)
+	return nil
 }
 
 func (dev Device) On() error {
@@ -79,7 +123,7 @@ func (dev Device) switchAction(action ActionClassId) error {
 	}
 
 	// is it a supported device
-	for _, devAction := range dev.Actions.Action {
+	for _, devAction := range dev.Actions {
 		property := devAction.PropClsId
 		switch property {
 		case PropClassIdBinarySwitch,
@@ -108,7 +152,7 @@ func (dev Device) motorAction(action ActionClassId) error {
 	}
 
 	// is it a supported device
-	for _, devAction := range dev.Actions.Action {
+	for _, devAction := range dev.Actions {
 		property := devAction.PropClsId
 		switch property {
 		case PropClassIdMotorUpDown:

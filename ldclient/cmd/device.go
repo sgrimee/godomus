@@ -12,7 +12,7 @@ import (
 var deviceCmd = &cobra.Command{
 	Use:   "device",
 	Short: "Get a single device",
-	Long:  `Get infos on a single device
+	Long: `Get infos on a single device
 	ldclient get device 110`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) == 0 {
@@ -27,7 +27,6 @@ var deviceCmd = &cobra.Command{
 		if err != nil {
 			log.Fatal(err)
 		}
-		dev.RoomKey = godomus.NewRoomKey(0) // room is not provided
 		output(outputFormat, dev)
 	},
 }

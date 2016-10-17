@@ -45,42 +45,42 @@ func printText(obj interface{}) {
 	switch t := obj.(type) {
 	default:
 		log.Fatalf("printText does not support type %T\n", t)
-	case godomus.Sites:
-		for _, e := range obj.(godomus.Sites) {
+	case []godomus.Site:
+		for _, e := range obj.([]godomus.Site) {
 			fmt.Printf("| %5d | %s\n", e.Key.Num(), e.Label)
 		}
-	case godomus.Users:
-		for _, e := range obj.(godomus.Users) {
+	case []godomus.User:
+		for _, e := range obj.([]godomus.User) {
 			fmt.Printf("| %5d | %s\n", e.Key.Num(), e.Nickname)
 		}
-	case godomus.Rooms:
-		for _, e := range obj.(godomus.Rooms) {
+	case []godomus.Room:
+		for _, e := range obj.([]godomus.Room) {
 			fmt.Printf("| %5d | %s\n", e.Key.Num(), e.Label)
 		}
-	case godomus.Scenarios:
-		for _, e := range obj.(godomus.Scenarios) {
+	case []godomus.Scenario:
+		for _, e := range obj.([]godomus.Scenario) {
 			fmt.Printf("| %5d | %s\n", e.Key.Num(), e.Label)
 		}
-	case godomus.Devices:
-		for _, e := range obj.(godomus.Devices) {
+	case []godomus.Device:
+		for _, e := range obj.([]godomus.Device) {
 			fmt.Printf("| %18s | %5d | %35s | %s\n",
 				e.RoomLabel, e.Key.Num(), e.Label, e.Resume)
 		}
 	case godomus.Device:
 		e := obj.(godomus.Device)
 		fmt.Printf("| %18s | %5d | %s\n", e.RoomLabel, e.Key.Num(), e.Label)
-	case godomus.Categories:
-		for _, e := range obj.(godomus.Categories) {
+	case []godomus.Category:
+		for _, e := range obj.([]godomus.Category) {
 			fmt.Printf("| %16s | %28s | %2d devices\n", e.CatClsId, e.Label, e.DevicesCount)
 		}
-	case godomus.Groups:
-		for _, e := range obj.(godomus.Groups) {
+	case []godomus.Group:
+		for _, e := range obj.([]godomus.Group) {
 			fmt.Printf("| %5d | %28s | %s\n", e.Key.Num(), e.Label, e.Resume)
 		}
 	case godomus.Group:
 		e := obj.(godomus.Group)
 		fmt.Printf("| %5d | %18s | %s\n", e.Key.Num(), e.Label, e.Resume)
-		for _, d := range e.DevicesGroups.DevicesGroup {
+		for _, d := range e.Devices {
 			fmt.Printf("    %25s: %5d - %s\n", d.RoomLabel, d.Key.Num(), d.Label)
 		}
 	}

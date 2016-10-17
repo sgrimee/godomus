@@ -118,10 +118,10 @@ func TestLoginInfos(t *testing.T) {
 		t.Fatal(err)
 	}
 	t.Logf("Login infos: %+v\n", infos)
-	if len(infos.Rooms.Room) <= 0 {
+	if len(infos.Rooms) <= 0 {
 		t.Fatal("No rooms received")
 	}
-	if len(infos.Scenarios.Scenario) <= 0 {
+	if len(infos.Scenarios) <= 0 {
 		t.Fatal("No scenarios received")
 	}
 }

@@ -7,12 +7,11 @@ import (
 )
 
 type RoomKey string
-type Rooms []Room
 
 type Room struct {
-	Key        RoomKey `json:"room_key"`
-	Label      string  `json:"label"`
-	PictureKey string  `json:"picture_key"`
+	Key        RoomKey    `json:"room_key"`
+	Label      string     `json:"label"`
+	PictureKey PictureKey `json:"picture_key"`
 }
 
 // NewRoomKey returns a RoomKey from a room number as integer
@@ -30,12 +29,18 @@ func (uk RoomKey) Num() int {
 	return num
 }
 
+// IsValidRoom returns true only for valid RoomKey
+// thus removing GROUPS, CAMERAS, etc
+func isValidRoom(r Room) bool {
+	return strings.HasPrefix(string(r.Key), "ROOM_")
+}
+
 // RoomsFromInfos extracts rooms from an info object
-// This only keeps rooms with a valid RoomKey, removing GROUPS, CAMERAS, etc
-func RoomsFromInfos(infos LoginInfos) Rooms {
-	var filtered Rooms
-	for _, r := range infos.Rooms.Room {
-		if strings.HasPrefix(string(r.Key), "ROOM_") {
+// This only keeps rooms with a
+func RoomsFromInfos(infos LoginInfos) []Room {
+	var filtered []Room
+	for _, r := range infos.Rooms {
+		if isValidRoom(r) {
 			filtered = append(filtered, r)
 		}
 	}

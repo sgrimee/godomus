@@ -17,7 +17,7 @@ var categoriesCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		var (
 			roomKeys   []godomus.RoomKey
-			categories godomus.Categories
+			categories []godomus.Category
 		)
 		// only one room if specified, otherwise all rooms
 		if categoriesCmdRoom != 0 {

@@ -10,5 +10,4 @@
 
 ## Maybe
 - add StopListeningForEvents
-- check /GetDeviceState
 - check /GetDevicesFromCatg
