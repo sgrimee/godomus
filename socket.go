@@ -24,8 +24,10 @@ type EventMsg struct {
 	Error     error
 }
 
+// BUG(sg): done channel not yet used in ListenForEvents
+
 // ListenForEvents gets device update events from the LD event socket
-func (d *Domus) ListenForEvents(events chan<- EventMsg, errs chan<- error) {
+func (d *Domus) ListenForEvents(events chan<- EventMsg, errs chan<- error, done <-chan struct{}) {
 	if d.socketAddr == "" {
 		errs <- errors.New("Event listening is not active, please provide a port number.")
 		close(events)
@@ -39,40 +41,51 @@ func (d *Domus) ListenForEvents(events chan<- EventMsg, errs chan<- error) {
 	}
 	connbuf := bufio.NewReader(conn)
 	for {
-		bytes, err := connbuf.ReadBytes(0)
-		if (len(bytes) == 1) && (bytes[0] == 0) {
-			continue // ignore regular byte 0 events
-		}
-		if len(bytes) != (int(bytes[0]) + 2) {
-			errs <- fmt.Errorf("Invalid length for frame: %s", bytes)
-			continue
-		}
-		if err != nil {
-			errs <- err
-			continue
-		}
-		// remove leading byte (length) and trailing (0)
-		msg := bytes[1 : len(bytes)-1]
-		em, err := ParseMsg(msg)
-		if err != nil {
-			errs <- err
-			continue
-		}
-		if IsDeviceUpdate(em) {
-			events <- em
+		select {
+		case <-done:
+			close(events)
+			close(errs)
+			return
+		default:
+			readOneEvent(connbuf, events, errs)
 		}
 	}
 }
 
-func ParseMsg(msg []byte) (EventMsg, error) {
+func readOneEvent(connbuf *bufio.Reader, events chan<- EventMsg, errs chan<- error) {
+	bytes, err := connbuf.ReadBytes(0)
+	if err != nil {
+		errs <- err
+		return
+	}
+	if (len(bytes) == 1) && (bytes[0] == 0) {
+		return // ignore regular byte 0 events
+	}
+	if len(bytes) != (int(bytes[0]) + 2) {
+		errs <- fmt.Errorf("Invalid length for frame: %s", bytes)
+		return
+	}
+	// remove leading byte (length) and trailing (0)
+	msg := bytes[1 : len(bytes)-1]
+	em, err := parseMsg(msg)
+	if err != nil {
+		errs <- err
+		return
+	}
+	if isDeviceUpdate(em) {
+		events <- em
+	}
+}
+
+func parseMsg(msg []byte) (EventMsg, error) {
 	em := EventMsg{}
 	em.Raw = string(msg)
 	err := xml.Unmarshal(msg, &em)
 	return em, err
 }
 
-// IsDeviceUpdate returns true only if the event is a device state update
-func IsDeviceUpdate(e EventMsg) bool {
+// isDeviceUpdate returns true only if the event is a device state update
+func isDeviceUpdate(e EventMsg) bool {
 	if strings.Contains(string(e.ClsId), "-CONSO") {
 		return false
 	}
@@ -83,5 +96,4 @@ func IsDeviceUpdate(e EventMsg) bool {
 		return false
 	}
 	return true
-	//fmt.Printf("  Ignoring clsid: %s\n", e.ClsId)
 }

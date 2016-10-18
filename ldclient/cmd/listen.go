@@ -16,7 +16,9 @@ var listenCmd = &cobra.Command{
 
 		events := make(chan godomus.EventMsg, 1)
 		errs := make(chan error, 1)
-		go domus.ListenForEvents(events, errs)
+		done := make(chan struct{})
+		defer close(done)
+		go domus.ListenForEvents(events, errs, done)
 
 		fmt.Println("Waiting for events, Ctrl+C to exit")
 		for {

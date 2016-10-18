@@ -173,7 +173,9 @@ func TestListenForEvents(t *testing.T) {
 	t.Skip("skipping event listening test, too slow")
 	events := make(chan EventMsg, 1)
 	errs := make(chan error, 1)
-	go domus.ListenForEvents(events, errs)
+	done := make(chan struct{})
+	defer close(done)
+	go domus.ListenForEvents(events, errs, done)
 	fmt.Println("Waiting for an event.")
 	select {
 	case ev := <-events:
