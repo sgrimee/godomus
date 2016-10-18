@@ -12,13 +12,13 @@ type SessionKey string
 type PictureKey string
 
 type Domus struct {
+	Debug      bool
 	siteKey    SiteKey
 	userKey    UserKey
 	password   string
 	apiUrl     *url.URL
 	socketAddr string
 	sessionKey SessionKey
-	Debug      bool
 }
 
 // New returns a new Domus object

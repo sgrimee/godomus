@@ -1,8 +1,8 @@
-## Misc
-- write end-user documentation
-
 ## Lib
-- implement StopListeningForEvents
+- write end-user documentation
+- better debugging code
+- re-org tests with sub-tests and proper init (goconvey?)
+- verify events code is thread-safe
 
 ## Client
 - room detection from text arguments

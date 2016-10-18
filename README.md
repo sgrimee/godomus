@@ -1,11 +1,11 @@
 # godomus
 GO client library for the Lifedomus home automation server
 
-See the [package documentation](https://godoc.org/github.com/sgrimee/godomus)
+See the [package reference doc](https://godoc.org/github.com/sgrimee/godomus).
 
-## Applications
+## Applications using this
 - [ldclient - CLI utility](https://github.com/sgrimee/godomus/tree/master/ldclient)
-- Soon: [hkdomus - HomeKit bridge](https://github.com/sgrimee/hkdomus)
+- [hkdomus - HomeKit bridge](https://github.com/sgrimee/hkdomus)
 
 ## Features
 - Login
@@ -15,8 +15,7 @@ See the [package documentation](https://godoc.org/github.com/sgrimee/godomus)
 - Launch a scenario
 - Listen to events from the server
 
-## TODO
-- Thread-safe the websocket server events piece
+Also see the [TODO](TODO.md) file 
 
 ## Testing
 
