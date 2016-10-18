@@ -1,6 +1,8 @@
 # godomus
 GO client library for the Lifedomus home automation server
 
+See the [package documentation](https://godoc.org/github.com/sgrimee/godomus)
+
 ## Applications
 - [ldclient - CLI utility](https://github.com/sgrimee/godomus/tree/master/ldclient)
 - Soon: [hkdomus - HomeKit bridge](https://github.com/sgrimee/hkdomus)
