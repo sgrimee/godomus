@@ -3,10 +3,11 @@ package godomus
 import "encoding/json"
 
 type StateClassId string
+type StateType string
 
 type State struct {
 	ClsId  StateClassId `json:"state_clsid"`
-	Type   string       `json:"type"`
+	Type   StateType    `json:"type"`
 	Label  string       `json:"label"`
 	Values []Value
 }

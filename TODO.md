@@ -1,4 +1,8 @@
+## Misc
+- write end-user documentation
+
 ## Lib
+- implement StopListeningForEvents
 
 ## Client
 - room detection from text arguments
@@ -11,3 +15,4 @@
 ## Maybe
 - add StopListeningForEvents
 - check /GetDevicesFromCatg
+- implement other Login* functions
