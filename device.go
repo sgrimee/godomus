@@ -68,7 +68,12 @@ func (d *Domus) DevicesInRoom(rk RoomKey, class CategoryClassId) ([]Device, erro
 	if err := json.NewDecoder(resp.Body).Decode(&body); err != nil {
 		return nil, err
 	}
-	return []Device(body.Devices), nil
+	devices := []Device(body.Devices)
+	for i, _ := range devices {
+		devices[i].server = d
+		devices[i].RoomKey = &rk
+	}
+	return devices, nil
 }
 
 // avoid recursion in UnmarshalJSON
@@ -119,7 +124,7 @@ func (dev Device) switchAction(action ActionClassId) error {
 		ActionClassIdOff,
 		ActionClassIdToggle:
 	default:
-		return errors.New("Invalid action class id")
+		return errors.New("switchAction: invalid action class id")
 	}
 
 	// is it a supported device
@@ -128,10 +133,13 @@ func (dev Device) switchAction(action ActionClassId) error {
 		switch property {
 		case PropClassIdBinarySwitch,
 			PropClassIdDimmerSwitch:
+			if dev.server == nil {
+				return errors.New("switchAction: device server reference is nil")
+			}
 			return dev.server.ExecuteAction(action, property, TargetKey(dev.Key))
 		}
 	}
-	return errors.New("Invalid property class id")
+	return errors.New("switchAction: invalid property class id")
 }
 
 func (dev Device) Up() error {
@@ -148,7 +156,7 @@ func (dev Device) motorAction(action ActionClassId) error {
 	case ActionClassIdUp,
 		ActionClassIdDown:
 	default:
-		return errors.New("Invalid action class id")
+		return errors.New("motorAction: invalid action class id")
 	}
 
 	// is it a supported device
@@ -156,10 +164,13 @@ func (dev Device) motorAction(action ActionClassId) error {
 		property := devAction.PropClsId
 		switch property {
 		case PropClassIdMotorUpDown:
+			if dev.server == nil {
+				return errors.New("motorAction: device server reference is nil")
+			}
 			return dev.server.ExecuteAction(action, property, TargetKey(dev.Key))
 		}
 	}
-	return errors.New("Invalid property class id")
+	return errors.New("motorAction: invalid property class id")
 }
 
 // NewDeviceKey returns a device key from a device number as integer
