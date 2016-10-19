@@ -43,5 +43,5 @@ var listenCmd = &cobra.Command{
 
 func init() {
 	RootCmd.AddCommand(listenCmd)
-	listenCmd.PersistentFlags().StringVarP(&outputFormat, "output", "o", "text", "Output format")
+	listenCmd.PersistentFlags().StringVarP(&outputFormat, "output", "o", "text", "Output format: text, json or yaml")
 }

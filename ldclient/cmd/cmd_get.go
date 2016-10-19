@@ -8,13 +8,10 @@ var outputFormat string // set by command-line parameter
 var getCmd = &cobra.Command{
 	Use:   "get",
 	Short: "Retrieve data from the LD server",
-	Long: `retrieve objects from the LD server, including rooms, 
-scenarios and devices`,
-	// Run: func(cmd *cobra.Command, args []string) {
-	// },
+	Long:  `Retrieve objects from the LD server`,
 }
 
 func init() {
 	RootCmd.AddCommand(getCmd)
-	getCmd.PersistentFlags().StringVarP(&outputFormat, "output", "o", "text", "Output format")
+	getCmd.PersistentFlags().StringVarP(&outputFormat, "output", "o", "text", "Output format: text, json or yaml")
 }
