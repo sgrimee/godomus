@@ -38,6 +38,7 @@ func printYaml(obj interface{}) {
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Println("---")
 	fmt.Println(string(y))
 }
 
@@ -69,6 +70,11 @@ func printText(obj interface{}) {
 	case godomus.Device:
 		e := obj.(godomus.Device)
 		fmt.Printf("| %18s | %5d | %s\n", e.RoomLabel, e.Key.Num(), e.Label)
+	case godomus.DeviceUpdate:
+		d := godomus.Device(obj.(godomus.DeviceUpdate))
+		val := d.States[0].Values[0]
+		fmt.Printf("%20s: %5d - %25s - %s %s %s\n",
+			d.RoomLabel, d.Key.Num(), d.Label, val.Label, val.Value, val.Unit)
 	case []godomus.Category:
 		for _, e := range obj.([]godomus.Category) {
 			fmt.Printf("| %16s | %28s | %2d devices\n", e.CatClsId, e.Label, e.DevicesCount)

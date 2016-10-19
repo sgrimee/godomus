@@ -24,9 +24,9 @@ type EventMsg struct {
 	Error     error
 }
 
-// BUG(sg): done channel not yet used in ListenForEvents
+type DeviceUpdate Device
 
-// ListenForEvents gets device update events from the LD event socket
+// ListenForEvents gets events from the LD event socket
 func (d *Domus) ListenForEvents(events chan<- EventMsg, errs chan<- error, done <-chan struct{}) {
 	if d.socketAddr == "" {
 		errs <- errors.New("Event listening is not active, please provide a port number.")
@@ -72,8 +72,30 @@ func readOneEvent(connbuf *bufio.Reader, events chan<- EventMsg, errs chan<- err
 		errs <- err
 		return
 	}
-	if isDeviceUpdate(em) {
-		events <- em
+	events <- em
+}
+
+// ListenForDeviceUpdates listens for server events that represent a device update
+// and sends the updated device status on the channel
+func (d *Domus) ListenForDeviceUpdates(devices chan<- Device, errs chan<- error, done <-chan struct{}) {
+	events := make(chan EventMsg)
+	go d.ListenForEvents(events, errs, done)
+	for {
+		select {
+		case <-done:
+			close(devices)
+			// errs will be closed by the ListenForEvents goroutine
+			return
+		case ev := <-events:
+			if isDeviceUpdate(ev) {
+				dev, err := d.GetDeviceState(ev.DeviceKey)
+				if err != nil {
+					errs <- err
+					continue
+				}
+				devices <- dev
+			}
+		}
 	}
 }
 

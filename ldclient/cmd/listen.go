@@ -14,24 +14,26 @@ var listenCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		domusLogin()
 
-		events := make(chan godomus.EventMsg, 1)
+		devices := make(chan godomus.Device, 1)
 		errs := make(chan error, 1)
 		done := make(chan struct{})
 		defer close(done)
-		go domus.ListenForEvents(events, errs, done)
+		go domus.ListenForDeviceUpdates(devices, errs, done)
 
-		fmt.Println("Waiting for events, Ctrl+C to exit")
+		switch outputFormat {
+		case "text":
+			fmt.Println("Waiting for events, Ctrl+C to exit")
+		case "json":
+			fmt.Println("[")
+		}
+
 		for {
 			select {
-			case ev := <-events:
-				//fmt.Printf("Event received: %+v\n", ev)
-				d, err := domus.GetDeviceState(ev.DeviceKey)
-				if err != nil {
-					log.Fatal(err)
+			case d := <-devices:
+				output(outputFormat, godomus.DeviceUpdate(d))
+				if outputFormat == "json" {
+					fmt.Println(",")
 				}
-				val := d.States[0].Values[0]
-				fmt.Printf("%20s: %5d - %25s - %s %s %s\n",
-					d.RoomLabel, d.Key.Num(), d.Label, val.Label, val.Value, val.Unit)
 			case err := <-errs:
 				log.Fatal(err)
 			}
@@ -41,4 +43,5 @@ var listenCmd = &cobra.Command{
 
 func init() {
 	RootCmd.AddCommand(listenCmd)
+	listenCmd.PersistentFlags().StringVarP(&outputFormat, "output", "o", "text", "Output format")
 }
