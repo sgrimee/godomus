@@ -39,14 +39,15 @@ func (d *Domus) Login(sk SiteKey, uk UserKey, password string) (SessionKey, erro
 	if n != sessionKeyLen {
 		return "", fmt.Errorf("Login: session key should be 40 bytes, is %d: %s", n, body)
 	}
-	d.sessionKey = SessionKey(body[:sessionKeyLen])
+
+	d.setSessionKey(SessionKey(body[:sessionKeyLen]))
+	d.setSiteKey(sk)
+	d.setUserKey(uk)
+	d.setPassword(password)
 	if d.Debug {
-		fmt.Printf("sessionKey: %s\n", d.sessionKey)
+		fmt.Printf("sessionKey: %s\n", d.SessionKey)
 	}
-	d.siteKey = sk
-	d.userKey = uk
-	d.password = password
-	return d.sessionKey, nil
+	return d.SessionKey(), nil
 }
 
 // LoginInfos returns a struct with a session key and additional infos
@@ -69,10 +70,10 @@ func (d *Domus) LoginInfos(sk SiteKey, uk UserKey, password string) (LoginInfos,
 	if err := json.NewDecoder(resp.Body).Decode(&infos); err != nil {
 		return infos, err
 	}
-	d.sessionKey = infos.SessionKey
-	d.siteKey = sk
-	d.userKey = uk
-	d.password = password
+	d.setSessionKey(infos.SessionKey)
+	d.setSiteKey(sk)
+	d.setUserKey(uk)
+	d.setPassword(password)
 	return infos, nil
 }
 

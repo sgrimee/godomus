@@ -134,13 +134,13 @@ func TestLogin(t *testing.T) {
 	if len(session) != sessionKeyLen {
 		t.Fatal("Invalid session key length")
 	}
-	if domus.sessionKey != session {
-		t.Fatalf("Session key was not saved correctly, saved:%s, received:%s", domus.sessionKey, session)
+	if domus.SessionKey() != session {
+		t.Fatalf("Session key was not saved correctly, saved:%s, received:%s", domus.SessionKey(), session)
 	}
 }
 
 func TestSessionRefresh(t *testing.T) {
-	domus.sessionKey = "bogus"
+	domus.setSessionKey("bogus")
 	_, err := domus.DevicesInRoom(testRoomKey, "")
 	if err != nil {
 		t.Fatal(err)

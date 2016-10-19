@@ -49,11 +49,11 @@ func (d *Domus) Get(resource string, queries map[string]string) (*http.Response,
 // If the session has expired it tries to refresh it
 // A login must have been performed before using GetWithSession
 func (d *Domus) GetWithSession(resource string, queries map[string]string) (*http.Response, error) {
-	if d.sessionKey == "" {
+	if d.SessionKey() == "" {
 		return nil, errors.New("DevicesInRoom: session key is not set, login first")
 	}
 	q := map[string]string{
-		"session_key": string(d.sessionKey),
+		"session_key": string(d.SessionKey()),
 	}
 	for k, v := range queries {
 		q[k] = v
@@ -66,7 +66,7 @@ func (d *Domus) GetWithSession(resource string, queries map[string]string) (*htt
 			if d.Debug {
 				log.Println("Refreshing session")
 			}
-			key, err := d.Login(d.siteKey, d.userKey, d.password)
+			key, err := d.Login(d.SiteKey(), d.UserKey(), d.Password())
 			if err != nil {
 				return nil, err
 			}
