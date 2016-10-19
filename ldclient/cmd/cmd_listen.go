@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/sgrimee/godomus"
@@ -22,9 +21,9 @@ var listenCmd = &cobra.Command{
 
 		switch outputFormat {
 		case "text":
-			fmt.Println("Waiting for events, Ctrl+C to exit")
+			output("text", "Waiting for events, Ctrl+C to exit")
 		case "json":
-			fmt.Println("[")
+			output("text", "[")
 		}
 
 		for {
@@ -32,7 +31,7 @@ var listenCmd = &cobra.Command{
 			case d := <-devices:
 				output(outputFormat, godomus.DeviceUpdate(d))
 				if outputFormat == "json" {
-					fmt.Println(",")
+					output("text", ",")
 				}
 			case err := <-errs:
 				log.Fatal(err)
