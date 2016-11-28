@@ -22,9 +22,12 @@ var categoriesCmd = &cobra.Command{
 		// only one room if specified, otherwise all rooms
 		if categoriesCmdRoom != 0 {
 			roomKeys = append(roomKeys, godomus.NewRoomKey(categoriesCmdRoom))
-			domusLogin()
 		} else {
-			rooms := godomus.RoomsFromInfos(domusInfos())
+			infos, err := domus.LoginInfos()
+			if err != nil {
+				log.Fatal(err)
+			}
+			rooms := godomus.RoomsFromInfos(infos)
 			if len(rooms) < 1 {
 				log.Fatal("No rooms found, are site and userid correct?")
 			}

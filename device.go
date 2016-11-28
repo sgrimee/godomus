@@ -69,7 +69,7 @@ func (d *Domus) DevicesInRoom(rk RoomKey, class CategoryClassId) ([]Device, erro
 		return nil, err
 	}
 	devices := []Device(body.Devices)
-	for i, _ := range devices {
+	for i := range devices {
 		devices[i].server = d
 		devices[i].RoomKey = &rk
 	}

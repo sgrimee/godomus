@@ -13,7 +13,11 @@ var roomsCmd = &cobra.Command{
 	Short: "Get list of rooms",
 	Long:  `Get list of rooms for the given site and user`,
 	Run: func(cmd *cobra.Command, args []string) {
-		rooms := godomus.RoomsFromInfos(domusInfos())
+		infos, err := domus.LoginInfos()
+		if err != nil {
+			log.Fatal(err)
+		}
+		rooms := godomus.RoomsFromInfos(infos)
 		if len(rooms) < 1 {
 			log.Fatal("No rooms found, are site and userid correct?")
 		}

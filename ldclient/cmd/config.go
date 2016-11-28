@@ -2,22 +2,23 @@ package cmd
 
 import (
 	"fmt"
+	"log"
 
-	"github.com/davecgh/go-spew/spew"
-	"github.com/spf13/cobra"
+	"github.com/sgrimee/godomus"
 	"github.com/spf13/viper"
 )
 
+var cfgFile string
+
+type Config struct {
+	DomusConfig godomus.Config
+	Debug       bool
+}
+
 func init() {
-	cobra.OnInitialize(initConfig, initDomus)
-
-	// Here you will define your flags and configuration settings.
-	// Cobra supports Persistent Flags, which, if defined here,
-	// will be global for your application.
-
 	RootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.ldclient.yaml)")
 
-	RootCmd.PersistentFlags().BoolVarP(&debug, "debug", "d", false, "enable debugging")
+	RootCmd.PersistentFlags().BoolP("debug", "d", false, "enable debugging")
 
 	RootCmd.PersistentFlags().StringP("password", "p", "", "password")
 	viper.BindPFlag("password", RootCmd.PersistentFlags().Lookup("password"))
@@ -39,8 +40,8 @@ func init() {
 	//RootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
-// initConfig reads in config file and ENV variables if set.
-func initConfig() {
+// getConfig reads in config file and ENV variables if set and returns a config
+func getConfig() Config {
 	if cfgFile != "" { // enable ability to specify config file via flag
 		viper.SetConfigFile(cfgFile)
 	}
@@ -49,11 +50,56 @@ func initConfig() {
 	viper.AddConfigPath("$HOME")     // adding home directory as first search path
 
 	// If a config file is found, read it in.
-	if err := viper.ReadInConfig(); err == nil && debug {
+	if err := viper.ReadInConfig(); err == nil {
 		fmt.Println("Using config file:", viper.ConfigFileUsed())
 	}
-	if debug {
-		fmt.Println("Config:")
-		spew.Dump(viper.AllSettings())
+
+	gdCfg := godomus.Config{
+		SiteKey:    cfgSiteKey(),
+		UserKey:    cfgUserKey(),
+		Password:   cfgPassword(),
+		Url:        cfgUrl(),
+		SocketPort: cfgSocketPort(),
+		Debug:      viper.GetBool("debug"),
 	}
+
+	return Config{
+		DomusConfig: gdCfg,
+		Debug:       viper.GetBool("debug"),
+	}
+}
+
+func cfgSiteKey() godomus.SiteKey {
+	if !viper.IsSet("site") || (viper.GetInt("site") < 1) {
+		log.Fatal("You must give a site (int), or set it in config file")
+	}
+	return godomus.NewSiteKey(viper.GetInt("site"))
+}
+
+func cfgUserKey() godomus.UserKey {
+	if !viper.IsSet("user") || (viper.GetInt("user") < 1) {
+		log.Fatal("You must give a user (int), or set it in config file")
+	}
+	return godomus.NewUserKey(viper.GetInt("user"))
+}
+
+func cfgPassword() string {
+	if !viper.IsSet("password") || (viper.GetString("password") == "") {
+		log.Fatal("You must give a password, or set it in config file")
+	}
+	return viper.GetString("password")
+}
+
+func cfgUrl() string {
+	if !viper.IsSet("url") || (viper.GetString("url") == "") {
+		log.Fatal("You must give a url, or set it in config file")
+	}
+	return viper.GetString("url")
+}
+
+func cfgSocketPort() int {
+	if !viper.IsSet("socket_port") || (viper.GetInt("socket_port") < 1) {
+		log.Fatal("You must give a socket_port (int), or set it in config file")
+	}
+	return viper.GetInt("socket_port")
 }

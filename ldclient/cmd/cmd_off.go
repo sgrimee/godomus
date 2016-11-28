@@ -24,7 +24,6 @@ var offCmd = &cobra.Command{
 			log.Fatalf("Error reading int device number: %s\n", err)
 		}
 
-		domusLogin()
 		dev, err := domus.GetDeviceState(godomus.NewDeviceKey(dnum))
 		if err != nil {
 			log.Fatal(err)

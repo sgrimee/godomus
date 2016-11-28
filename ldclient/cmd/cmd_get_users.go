@@ -14,7 +14,6 @@ var usersCmd = &cobra.Command{
 	Short: "Get users",
 	Long:  `Get users`,
 	Run: func(cmd *cobra.Command, args []string) {
-		validateSiteSet()
 		sk := godomus.NewSiteKey(viper.GetInt("site"))
 		users, err := domus.GetUsers(sk)
 		if err != nil {

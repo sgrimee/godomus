@@ -23,7 +23,6 @@ var groupCmd = &cobra.Command{
 		}
 		gk := godomus.NewGroupKey(gnum)
 
-		domusLogin()
 		group, err := domus.GetGroup(gk)
 		if err != nil {
 			log.Fatal(err)

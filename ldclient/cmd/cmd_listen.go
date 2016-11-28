@@ -11,7 +11,6 @@ var listenCmd = &cobra.Command{
 	Use:   "listen",
 	Short: "Continuously listen for device update events",
 	Run: func(cmd *cobra.Command, args []string) {
-		domusLogin()
 
 		devices := make(chan godomus.Device, 1)
 		errs := make(chan error, 1)

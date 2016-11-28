@@ -12,7 +12,6 @@ var groupsCmd = &cobra.Command{
 	Short: "Get available device groups",
 	Long:  `Get a list of device groups.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		domusLogin()
 		groups, err := domus.GetGroups()
 		if err != nil {
 			log.Fatal(err)

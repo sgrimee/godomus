@@ -12,7 +12,11 @@ var scenariosCmd = &cobra.Command{
 	Short: "Get available scenarios",
 	Long:  `Get a list of scenarios that can be launched.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		scenarios := domusInfos().Scenarios
+		infos, err := domus.LoginInfos()
+		if err != nil {
+			log.Fatal(err)
+		}
+		scenarios := infos.Scenarios
 		if len(scenarios) < 1 {
 			log.Fatal("No scenarios found, are site and userid correct?")
 		}

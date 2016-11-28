@@ -24,7 +24,6 @@ var scenarioCmd = &cobra.Command{
 		}
 		sk := godomus.NewScenarioKey(snum)
 
-		domusLogin()
 		if err = domus.RunScenario(sk); err != nil {
 			log.Fatal(err)
 		}

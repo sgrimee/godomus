@@ -16,48 +16,43 @@ type LoginInfos struct {
 	// Groups     Group[]
 }
 
-// Login saves and returns the session key for a user
-// The site, user, password and session keys are saved for later use by other methods
-func (d *Domus) Login(sk SiteKey, uk UserKey, password string) (SessionKey, error) {
+// Login saves the session key using credentials from config
+func (d *Domus) Login() error {
 	resp, err := d.Get("/Mobile/Login", map[string]string{
-		"site_key": string(sk),
-		"user_key": string(uk),
-		"password": password,
+		"site_key": string(d.config.SiteKey),
+		"user_key": string(d.config.UserKey),
+		"password": d.config.Password,
 	})
 	if err != nil {
-		return "", err
+		return err
 	}
 	defer resp.Body.Close()
 	var n int
 	body := make([]byte, sessionKeyLen+10)
 	if n, err = resp.Body.Read(body); n <= 0 {
 		if err == io.EOF {
-			return "", errors.New("Login: invalid credentials (EOF received)")
+			return errors.New("Login: invalid credentials (EOF received)")
 		}
-		return "", err
+		return err
 	}
 	if n != sessionKeyLen {
-		return "", fmt.Errorf("Login: session key should be 40 bytes, is %d: %s", n, body)
+		return fmt.Errorf("Login: session key should be 40 bytes, is %d: %s", n, body)
 	}
 
 	d.setSessionKey(SessionKey(body[:sessionKeyLen]))
-	d.setSiteKey(sk)
-	d.setUserKey(uk)
-	d.setPassword(password)
 	if d.Debug {
 		fmt.Printf("sessionKey: %s\n", d.SessionKey)
 	}
-	return d.SessionKey(), nil
+	return nil
 }
 
-// LoginInfos returns a struct with a session key and additional infos
-// The site, user, password and session keys are saved for later use by other methods
-func (d *Domus) LoginInfos(sk SiteKey, uk UserKey, password string) (LoginInfos, error) {
+// LoginInfos returns a struct with misc infos
+func (d *Domus) LoginInfos() (LoginInfos, error) {
 	var infos LoginInfos
 	resp, err := d.Get("/Mobile/LoginInfos", map[string]string{
-		"site_key": string(sk),
-		"user_key": string(uk),
-		"password": password,
+		"site_key": string(d.config.SiteKey),
+		"user_key": string(d.config.UserKey),
+		"password": d.config.Password,
 	})
 	if err != nil {
 		return infos, err
@@ -71,9 +66,6 @@ func (d *Domus) LoginInfos(sk SiteKey, uk UserKey, password string) (LoginInfos,
 		return infos, err
 	}
 	d.setSessionKey(infos.SessionKey)
-	d.setSiteKey(sk)
-	d.setUserKey(uk)
-	d.setPassword(password)
 	return infos, nil
 }
 

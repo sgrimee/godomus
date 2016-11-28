@@ -8,11 +8,8 @@ import (
 	"github.com/spf13/viper"
 )
 
-var (
-	domus *Domus
-)
+var domus *Domus
 
-// TODO: get this test data from config file
 var (
 	cfgFile         string
 	testSiteKey     SiteKey
@@ -81,14 +78,18 @@ func TestKeyConversions(t *testing.T) {
 }
 
 func TestNew(t *testing.T) {
-	d, err := New(testApiUrl, testSocketPort)
+	d, err := New(Config{
+		Url:        testApiUrl,
+		SocketPort: testSocketPort,
+		Debug:      testing.Verbose(),
+	})
 	if err != nil {
 		t.Fatalf("Could not create domus object: %s", err)
 	}
-	d.Debug = testing.Verbose()
 	if d.socketAddr != testSocketAddr {
 		t.Fatalf("Incorrect socket url: %s", d.socketAddr)
 	}
+	// Save the object for other tests
 	domus = d
 }
 
@@ -113,7 +114,19 @@ func TestGetUsers(t *testing.T) {
 }
 
 func TestLoginInfos(t *testing.T) {
-	infos, err := domus.LoginInfos(testSiteKey, testUserKey, testPassword)
+	d, err := New(Config{
+		SiteKey:    testSiteKey,
+		UserKey:    testUserKey,
+		Password:   testPassword,
+		Url:        testApiUrl,
+		SocketPort: 0,
+		Debug:      testing.Verbose(),
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	infos, err := d.LoginInfos()
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -127,16 +140,24 @@ func TestLoginInfos(t *testing.T) {
 }
 
 func TestLogin(t *testing.T) {
-	session, err := domus.Login(testSiteKey, testUserKey, testPassword)
+	d, err := New(Config{
+		SiteKey:    testSiteKey,
+		UserKey:    testUserKey,
+		Password:   testPassword,
+		Url:        testApiUrl,
+		SocketPort: testSocketPort,
+		Debug:      testing.Verbose(),
+	})
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(session) != sessionKeyLen {
-		t.Fatal("Invalid session key length")
+
+	err = d.Login()
+	if err != nil {
+		t.Fatal(err)
 	}
-	if domus.SessionKey() != session {
-		t.Fatalf("Session key was not saved correctly, saved:%s, received:%s", domus.SessionKey(), session)
-	}
+	// save the authenticated Domus for further tests
+	domus = d
 }
 
 func TestSessionRefresh(t *testing.T) {
